@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>严格模式</title>
+</head>
+
+<body>
+  <script>
+    // 'use strict'
+    // // debugger
+    // // console.log(this)
+    // // console.log(aatest())
+    // function aatest() {
+    //   console.log('---')
+    //   console.log(this)
+    // }
+
+    // // window.aatest()
+
+
+    // (function () {
+    //   // 'use strict'
+    //   aatest()
+    //   console.log(this)
+    // })()
+    // // box()
+
+    // // let a = {n: 1}
+    // // let b = a;
+    // // // a = {n: 2}
+    // // a.x = a
+    // // // a = { n: 2 }
+    // // console.log(a)
+    // // // console.log(b)
+    // // console.log(a.x) // undefined
+    // // console.log(b.x) // { n: 2 }
+    // // let a = {n: 1}
+    // // let b = a;
+    // // debugger
+    // // a.x = a = {n: 2}
+    // // console.log(a.x) // undefined
+    // // console.log(b.x) // { n: 2 }
+
+    // var a = new WeakSet([[1,2], [3,4]])
+    // for(let i of a) {
+    //   console.log(i) // a is not a iterable
+    // }
+    // class Car {
+    //   constructor(color, price) {
+    //     this.color = color
+    //     this.price = price
+    //   }
+    //   static age = 10
+    //   say() {
+    //     console.log(`${this.color}and${this.price}`)
+    //   }
+    // }
+
+    // class Cruze extends Car {
+    //   constructor(color, price) {
+    //     super(color, price)
+    //   }
+    // }
+
+    // let cruze = new Cruze('红色', 140000)
+    // console.log(cruze)
+
+    var test = function test1() {
+      test1 = 2
+      console.log(test1) // test function
+      console.log(test)
+    }
+    test()
+    // cruze.say()
+  </script>
+</body>
+
+</html>
