@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var arr = ['foo', 'food', 'foods'] 
+        // var narr = []
+        // var reg = /foo/g;
+        // arr.forEach(v => {
+        //     var flag = reg.test(v)
+        //     console.log(reg.lastIndex)
+        //     // 3
+        //     // 0
+        //     // 3
+        //     if(flag) {
+        //         narr.push(v)
+        //     }
+        // })   
+        // console.log(narr)
+        var reg = /foo/g
+        var reg1 = reg;
+        reg = /food/g
+        console.log(reg, reg1)
+        console.log(reg.test('fooaaa'))
+        console.log(reg1.test('fooaaa'))
+    </script>
+</body>
+
+</html>
