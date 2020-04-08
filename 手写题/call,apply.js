@@ -1,5 +1,8 @@
 // 手写call
 Function.prototype.myCall = function (context) {
+    if(typeof this !== 'function') {
+        throw TypeError("not function")
+    }
     context = context || window;
     var fn = Symbol()
     context[fn] = this;
@@ -15,6 +18,9 @@ Function.prototype.myCall = function (context) {
 
 // 手写apply
 Function.prototype.myApply = function (context, args) {
+    if (typeof this !== 'function') {
+        throw TypeError("not function")
+    }
     context = context || window;
     var fn = Symbol();
     context[fn] = this;
