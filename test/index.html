@@ -9,46 +9,345 @@
 </head>
 
 <body>
-    <script>
-        // Function.prototype.uncurring = function () {
-        //     var self = this;
-        //     return function () {
-        //         let context = Array.prototype.shift.call(arguments)
-        //         console.log(context)
-        //         console.log(arguments)
-        //         return self.apply(context, arguments)
-        //     }
-        // }
-        // var push = Array.prototype.push.uncurring();
-        // var arr = []
-        // push(arr, "first", "second")
-        // // console.log(arr)
-        // function foo(n) {
-        //     return bar(n*2)
-        // }
-        // function bar() {
-        //     console.log(n)
-        //     console.trace()
-        // }
-        // foo(1)
+    <buttion id="test">dddd</button>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            // Function.prototype.uncurring = function () {
+            //     var self = this;
+            //     return function () {
+            //         let context = Array.prototype.shift.call(arguments)
+            //         console.log(context)
+            //         console.log(arguments)
+            //         return self.apply(context, arguments)
+            //     }
+            // }
+            // var push = Array.prototype.push.uncurring();
+            // var arr = []
+            // push(arr, "first", "second")
+            // // console.log(arr)
+            // function foo(n) {
+            //     return bar(n*2)
+            // }
+            // function bar() {
+            //     console.log(n)
+            //     console.trace()
+            // }
+            // foo(1)
 
-        function fun(n, o) {
-            console.log(o)
-            return {
-                fun: function(m) {
-                    return fun(m, n)
-                }
+            // function fun(n, o) {
+            //     console.log(o)
+            //     return {
+            //         fun: function(m) {
+            //             return fun(m, n)
+            //         }
+            //     }
+            // }
+
+            // var a = fun(0)
+            // a.fun(1)
+            // a.fun(2)
+            // var b = fun(0).fun(1).fun(2).fun(3)
+            // var c = fun(0).fun(1)
+            // c.fun(2)
+            // c.fun(3)
+
+            // 考虑数组，对象的简单深拷贝
+            const isArray = (o) => Object.prototype.toString.call(o) === '[object Array]'
+            const isObject = (o) => Object.prototype.toString.call(o) === '[object Object]'
+
+            // function deepClone(origin) {
+            //     if (!isArray(origin) && !isObject(origin)) return origin
+            //     const result = isArray(origin) ? [] : {}
+            //     for (let i in origin) {
+            //         if(origin.hasOwnProperty(i)) {
+            //             result[i] = deepClone(origin[i])
+            //         }
+            //     }
+            //     return result
+            // }
+
+
+            // 考虑循环引用问题
+            // function deepClone(origin, map = new Map()) {
+            //     if (!isArray(origin) && !isObject(origin)) return origin
+            //     const result = isArray(origin) ? [] : {}
+            //     if (map.get(origin)) {
+            //         return map.get(origin)
+            //     }
+            //     map.set(origin, result)
+            //     for (let i in origin) {
+            //         if (origin.hasOwnProperty(i)) {
+            //             result[i] = deepClone(origin[i], map)
+            //         }
+            //     }
+            //     return result
+            // }
+
+            // weakmap弱引用    
+            // function deepClone1(origin, map = new WeakMap()) {
+            //     if (!isArray(origin) && !isObject(origin)) return origin
+            //     // 针对特殊对象的处理
+            //     let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
+            //     if (type.includes(origin.constructor)) return new origin.constructor(origin)
+            //     const result = isArray(origin) ? [] : {}
+            //     if (map.get(origin)) {
+            //         return map.get(origin)
+            //     }
+            //     map.set(origin, result)
+            //     for (let i in origin) {
+            //         if (origin.hasOwnProperty(i)) {
+            //             result[i] = deepClone1(origin[i], map)
+            //         }
+            //     }
+            //     return result
+            // }
+            // // 例如
+
+
+
+
+            // const isComplexDataType = obj => (typeof obj === 'object' || typeof obj === 'function') && (obj !== null)
+
+
+
+            // const deepClone = function (obj, hash = new WeakMap()) {
+            //     if (hash.has(obj)) return hash.get(obj)
+            //     let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
+            //     if (type.includes(obj.constructor)) return new obj.constructor(obj);
+            //     //如果成环了,参数obj = obj.loop = 最初的obj 会在WeakMap中找到第一次放入的obj提前返回第一次放入WeakMap的cloneObj
+            //     let allDesc = Object.getOwnPropertyDescriptors(obj); //遍历传入参数所有键的特性
+            //     let cloneObj = Object.create(Object.getPrototypeOf(obj), allDesc); //继承原型
+            //     hash.set(obj, cloneObj)
+            //     for (let key of Reflect.ownKeys(obj)) { //Reflect.ownKeys(obj)可以拷贝不可枚举属性和符号类型
+            //         // 如果值是引用类型(非函数)则递归调用deepClone
+            //         cloneObj[key] =
+            //             (isComplexDataType(obj[key]) && typeof obj[key] !== 'function') ?
+            //             deepClone(obj[key], hash) : obj[key];
+            //     }
+            //     return cloneObj;
+            // };
+
+
+            // var a = {
+            //     d: true,
+            //     fn: function () {
+            //         console.log('clone function')
+            //     },
+            //     set: new Set([2])
+            // }
+
+            // let obj = {
+            //     bigInt: BigInt(12312),
+            //     set: new Set([2]),
+            //     map: new Map([
+            //         ['a', 22],
+            //         ['b', 33]
+            //     ]),
+            //     num: 0,
+            //     str: '',
+            //     boolean: true,
+            //     unf: undefined,
+            //     nul: null,
+            //     obj: {
+            //         name: '我是一个对象',
+            //         id: 1
+            //     },
+            //     arr: [0, 1, 2],
+            //     func: function () {
+            //         console.log('我是一个函数')
+            //     },
+            //     date: new Date(0),
+            //     reg: new RegExp('/我是一个正则/ig'),
+            //     [Symbol('1')]: 1,
+            // };
+
+            // var c = deepClone1(a)
+            // // a.fn = function () {
+            // //     console.log('dddd')
+            // // }
+            // a.set = new Set([1,2,3])
+            // console.log(c)
+            // var x = 1,
+            //     y = 0,
+            //     z = 0;
+
+            // function add(x) {
+            //     return (x = x + 1);
+            // }
+            // y = add(x);
+            // console.log(y) // 4
+
+            // function add(x) {
+            //     return (x = x + 3);
+            // }
+            // z = add(x); 
+            // console.log(z) // 4
+            // this.a = 20;
+
+            // function go() {
+            //     console.log(this.a);
+            //     this.a = 30;
+            // }
+            // go.prototype.a = 40;
+            // var test = {
+            //     a: 50,
+            //     init: function (fn) {
+            //         fn();
+            //         console.log(this.a);
+            //         return fn;
+            //     }
+            // };
+            // console.log((new go()).a); // 40, 30
+            // test.init(go);  // 20 50 
+            // var p = test.init(go); // 30, 50
+            // p(); // 30
+            // function yideng() {
+            //     console.log(1);
+            // }
+            // (function () {
+            //     if (false) {
+            //         function yideng() {
+            //             console.log(2);
+            //         }
+            //     }
+            //     yideng();
+            // })();
+            // var yideng = function yideng() {
+            //     yideng = 1;
+            //     console.log(typeof yideng);
+            // }
+            // yideng();
+            // yideng = 1;
+            // console.log(typeof yideng);
+            // console.log(a); // undefined
+            // console.log(typeof yideng(a));
+            // var flag = true;
+            // if (!flag) {
+            //     var a = 1;
+            // }
+            // if (flag) {
+            //     function yideng(a) {
+            //         yideng = a;
+            //         console.log("yideng1");
+            //     }
+            // } else {
+            //     function yideng(a) {
+            //         yideng = a;
+            //         console.log("yideng2");
+            //     }
+            // }
+            // function fn() {
+            //     window.dd = this
+            //     console.log(this)
+            //     console.log(this.length);
+            // }
+            // var yideng = {
+            //     length: 5,
+            //     method: function () {
+            //         "use strict";
+            //         fn();
+            //         // arguments[0]()
+            //     }
+            // }
+            // const result = yideng.method.bind(null); // 0
+            // result(fn, 1); // 2
+            // function yideng(a, b, c) {
+            //     console.log(this.length); // 4
+            //     console.log(this.callee)
+            //     console.log(this.callee.length); // 5
+            // }
+
+            // function fn(d) {
+            //     arguments[0](10, 20, 30, 40, 50);
+            // }
+            // fn(yideng, 10, 20, 30);
+            // function test() {
+            //     var a = "yideng";
+            //     return function () {
+            //         eval("");
+            //     }
+            // }
+            // test()();
+            // Object.prototype.a = 'a'
+            // Function.prototype.a = 'a1'
+            // function Person(){};
+            // var yideng = new Person();
+            // console.log(Person.a); // a1
+            // console.log(yideng.a); // a
+            // console.log(1..a); // 
+            // // console.log(1.a);
+            // console.log(Function.constructor);// function Object
+            // // Object.prototype 和 Function.prototype 打印的内容差距很大原因是什么呢？
+            // 请问点击<buttion id=“test”></button>会有反应么？为什么？能解决么？
+            // $('#test').click(function (argument) {
+            //     console.log(1);
+            // });
+            // setTimeout(function () {
+            //     console.log(2);
+            // }, 0);
+            // while (true) {
+            //     console.log(Math.random());
+            // }
+            // var test = () => {
+            //     setTimeout(() => {
+            //         console.log(Math.random())
+            //         test()
+            //     }, 0);
+            // }
+            // test()
+            // const pro = new Promise((resolve, reject) => {
+            //     const innerpro = new Promise((resolve, reject) => {
+            //         setTimeout(() => {
+            //             resolve(1);
+            //         })
+            //         console.log(2);
+            //         resolve(3);
+            //     })
+            //     innerpro.then(res => console.log(res));
+            //     resolve(4);
+            //     console.log("yideng");
+            // })
+            // pro.then(res => console.log(res));
+            // console.log("end");
+            // 2
+            // yideng
+            // end
+            // 3
+            // 4
+            // var s = [];
+            // var arr = s;
+            // debugger
+            // for (var i = 0; i < 3; i++) {
+            //     var pusher = {
+            //             value: "item" + i
+            //         },
+            //         tmp;
+            //     if (i !== 2) {
+            //         tmp = [];
+            //         pusher.children = tmp
+            //     }
+            //     arr.push(pusher);
+            //     arr = tmp;
+            // }
+            // console.log(s);
+
+            // s: []
+            // arr: s 
+            // pusher = { value: , children: tmp }
+            // s = [pusher]
+            // arr = tmp = []
+            // pusher = { value: , children: tmp }
+            var Container = function (x) {
+                this.__value = x;
             }
-        }
-
-        var a = fun(0)
-        a.fun(1)
-        a.fun(2)
-        var b = fun(0).fun(1).fun(2).fun(3)
-        var c = fun(0).fun(1)
-        c.fun(2)
-        c.fun(3)
-    </script>
+            Container.of = x => new Container(x);
+            Container.prototype.map = function (f) {
+                return Container.of(f(this.__value))
+            }
+            Container.of(3)
+                .map(x => x + 1)
+                .map(x => 'Result is ' + x);
+        </script>
 </body>
 
 </html>
