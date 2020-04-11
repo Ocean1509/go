@@ -1,4 +1,4 @@
-1. for-of 无法遍历weakSet, weakMap
+1. for-of 无法遍历weakSet, weakMap(弱引用)
 ```
 var a = new WeakSet([[1,2], [3,4]])
 for(let i of a) {
