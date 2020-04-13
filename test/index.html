@@ -337,16 +337,146 @@
             // s = [pusher]
             // arr = tmp = []
             // pusher = { value: , children: tmp }
-            var Container = function (x) {
-                this.__value = x;
+            // var Container = function (x) {
+            //     this.__value = x;
+            // }
+            // Container.of = x => new Container(x);
+            // Container.prototype.map = function (f) {
+            //     return Container.of(f(this.__value))
+            // }
+            // Container.of(3)
+            //     .map(x => x + 1)
+            //     .map(x => 'Result is ' + x);
+            // var test = function test(){
+            //     test = 2
+            //     console.log(typeof test)
+            // }
+            // test()
+            // console.log(test)
+            // function test(){
+            //     test = 2
+            //     console.log(typeof test)
+            // }
+            // test()
+            // console.log(test)
+            // var a = 2
+            // var b
+            // {
+
+            //     function test() {
+            //         b = 3
+            //     }
+            //     test()
+            // }
+
+            // console.log(a, b)
+            // function test() {
+            //     var aa = 'test'
+            //     return function () {
+            //         return aa
+            //     }
+            // }
+            // var tests = test()()
+            // console.log(tests)
+            // function Test(name) {
+            //     this.name = name
+            // }
+            // function factory() {
+            //     var test1 = new Test('d')
+            //     return function() {
+            //         console.log(test1)
+            //     }
+            // }
+            // var d = factory()
+            // d()
+            // $.ajax({
+            //     method: 'post',
+            //     url: "http://localhost:3002/test",
+            //     data: {
+            //         dd: 123
+            //     },
+            //     dataType: 'json',
+            //     success(data) {
+            //         console.log(data)
+            //     }
+            // })
+            // function Test() {
+
+            // }
+            // function A() {
+            //     this.name = 12
+            // }
+            // var b = {}
+            // console.log(b instanceof A) // 
+            // A[Symbol.hasInstance] = function(org) {
+            //     console.log(org)
+            //     return true
+            // }
+            // console.log(b instanceof A)
+            // class MyClass {
+            //     [Symbol.hasInstance](foo) {
+            //         console.log(foo)
+            //         return foo instanceof Array;
+            //     }
+            // }
+            // function A() {
+
+            // }
+            // A.prototype[Symbol.hasInstance] = (foo) => {
+            //     console.log(foo)
+            //     return foo instanceof Array;
+            // }
+            // [1, 2, 3] instanceof new A() // true
+            // var a = {
+            //     d: 1,
+            //     b: 2,
+            // }
+            // var b = [1, 2, 3]
+
+            // console.log(a instanceof function(){}) // false
+
+            // b[Symbol.hasInstance] = function (foo) {
+            //     return true
+            // }
+            // class MyClass {
+            //     // [Symbol.hasInstance](foo) {
+            //     //     return foo instanceof Array;
+            //     // }
+            // }
+
+            // console.log([1, 2, 3] instanceof new MyClass()) // true
+            // console.log(a instanceof b) // true
+            // a[Symbol.hasInstance] = function() {
+            //     return true
+            // }
+            // console.log(b instanceof a) // 
+
+            // console.log(A[Symbol.hasInstance](b))
+            // console.log(obj instanceof Test)
+            // console.log('obj' instanceof Test)
+
+            // var a = {
+            //     [Symbol.toPrimitive]:((i) => () => ++i)(0)
+            // }
+            // if (a == 1 && a == 2 && a == 3) {
+            //     console.log(true) // true
+            // }
+
+            var obj = { a: 1, b: 2}
+            obj[Symbol.iterator] = function() {
+                let o = Object.keys(this)
+                return {
+                    next: function() {
+                        return {
+                            value: o[i++],
+                            done: 
+                        }
+                    }
+                }
+            }()
+            for(let i of obj) {
+                console.log(i)
             }
-            Container.of = x => new Container(x);
-            Container.prototype.map = function (f) {
-                return Container.of(f(this.__value))
-            }
-            Container.of(3)
-                .map(x => x + 1)
-                .map(x => 'Result is ' + x);
         </script>
 </body>
 

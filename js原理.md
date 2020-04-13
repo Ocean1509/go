@@ -118,19 +118,80 @@ for (let [key, value] of Object.entries(Car)) {
   Cruze[key] = value
 }
 ```
-
-8. 使用函数表达式去声明函数时，可以指定另外的函数名，例如
+8. 块级作用域的提升
+题型1:
 ```
-var test = function test1() {}
+function test(){
+    test = 2
+    console.log(typeof test) // number
+}
+test()
+console.log(test) // 2
+```
+全局作用域声明了test，在test的函数作用域内，由于函数作用域没有test, 所以test=2会作用到全局的test中。
+
+提型2：
+```
+{
+  function test(){
+    test = 2
+    console.log(typeof test) // number
+  }
+}
+test()
+console.log(test) // function test() {}
 
 ```
-但如果在函数内部去修改函数名时，修改不会生效
+和上面的区别在于function test在一个块级作用域里面。块级作用域的函数声明会先把test的声明提升到块级作用域外，但是是变量声明。
+```
+var test = undefined
+{
+  function test() {
+
+  }
+}
+```
+test()执行期间,test = 2是在块级作用域中赋值，所以不会影响到最外层test的值。
+
+题型3：
+```
+{
+    function test() {
+        test = 2
+        console.log(typeof test) // number
+    }
+    test() // 
+    console.log(test) // 2
+}
+
+console.log(test) // function test
+```
+解析过程和题型2相同，核心在于块级作用域的函数变量另赋值，并不会影响到外部的值。
+
+
+题型4：
+```
+var b
+{
+    
+    function test() {
+        b = 3
+    }
+    test()
+}
+console.log(b) // 3
+```
+var的变量声明和函数声明不同，块级作用域变量的赋值会影响到外部。
+
+题型5：
 ```
 var test = function test1() {
   test1 = 2
   console.log(test1) // test function
 }
 ```
+
+函数表达式中可以指定另外的函数名，且这个函数名称受保护，不能被修改。如果在函数内部去修改函数名时，修改不会生效
 
 
 9. with的弊端
@@ -145,3 +206,37 @@ var test = function test1() {
 
 10. window.length
 window.length 返回 iframe 数量
+
+11. eval会产生闭包
+题目：判断变量a是否被gc回收？
+```
+function test() {
+  var a = 'test'
+  return function() {
+    eval("")
+  }
+}
+test()()
+```
+不会，eval执行的时候，由于无法判断变量a是否会被引用，所有会以闭包的形式保留a的值，所以a不会被gc回收。
+
+tip: 1. 闭包是保留在堆中，所以会一直存在,直到外部空间销毁
+     2. 如何在chrome操作gc： chrome -> memory
+
+```
+function test() {
+  var a = 'test'
+  return function() {
+    window.eval("")
+  }
+}
+test()()
+```
+此时gc会被回收，因为此时eval的作用域在window
+
+12. 元编程
+简单理解： 改变或者扩充js原始的能力
+Symbol,Reflect,Proxy,reflect-metadata(剩余内容)
+具体看es相关笔记
+
+13. regenerator-runtime
