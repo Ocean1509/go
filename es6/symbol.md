@@ -201,13 +201,26 @@ for(let i of obj) {
 obj[Symbol.iterator] = function() {
   return makeIterator(obj) // 部署Symbol.iterator属性，使得在用for-of遍历过程中，执行makeIterator方法返回遍历器
 }
+// 或者
+obj[Symbol.iterator] = () => {
+    let i = 0;
+    let keys = Object.keys(obj)
+    return {
+        next: function () {
+            return {
+                value: obj[keys[i++]],
+                done: i >= keys.length ? true : false
+            }
+        }
+    }
+}
 
 for(let i of obj) {
   console.log(i)  // a, b
 }
 ```
 
-如何模拟for-of方法
+##### 如何模拟for-of方法
 
 ```
 function forOf(obj, cb) {
@@ -247,9 +260,86 @@ var a = {
     yield 1
     yield 2
   }
+  // or
+  *[Symbol.iterator]() {
+    yield 1
+    yield 2
+  }
 }
 
 for(let i of a) {
   console.log(i) // 1, 2
 }
 ```
+##### for of 遍历数组只返回数组索引的属性
+
+for...of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。这一点跟for...in循环也不一样
+
+```
+let arr = [3, 5, 7];
+arr.foo = 'hello';
+
+for (let i in arr) {
+  console.log(i); // "0", "1", "2", "foo"
+}
+
+for (let i of arr) {
+  console.log(i); //  "3", "5", "7"
+}
+```
+
+##### 除了增加Symbol.iterator属性，还有什么方式可以让对象可以迭代
+
+```
+var obj = {
+  a: 1,
+  b: 2
+}
+
+function *entries(obj) {
+  for(let key of Object.keys(obj)) {
+    yield [key, obj[key]]
+  }
+}
+
+for(let [key, value] of entries(obj)) {
+  console.log(key, value)
+}
+// a 1
+// b 2
+```
+
+
+### js几种遍历的比较
+
+js目前遍历方法有 
+1. for循环，可针对，数组，或者对象，最原始的方法
+```
+for(var i = 0; i<len; i++) {
+
+}
+```
+
+2. forEach,只能遍历数组，不能遍历对象
+```
+var a = [1,2]
+a.forEach((value, key) => {
+  console.log(value)
+})
+```
+缺点： 无法用break，continue，return跳出循环
+
+3. for in，可以遍历数组和对象
+```
+var a = [1,2]
+for(let i in a) {
+
+}
+```
+缺点： 
+  数组的键名是数字，但是for...in循环是以字符串作为键名“0”、“1”、“2”等等。
+  for in 会遍历原型链上的值
+
+4. for of 用来遍历部署了iterator接口的数组
+
+缺点： 无法针对对象
