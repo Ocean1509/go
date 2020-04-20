@@ -236,7 +236,7 @@ test()()
 
 12. 元编程
 简单理解： 改变或者扩充js原始的能力
-Symbol,Reflect,Proxy,reflect-metadata(剩余内容)
+Symbol,Reflect,Proxy,reflect-metadata
 具体看es相关笔记
 
 13. regenerator-runtime

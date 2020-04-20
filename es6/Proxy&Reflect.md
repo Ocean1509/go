@@ -39,7 +39,7 @@ Object.defineProperty(obj, {
   set() {}
 })
 ```
-
+**receiver是代理的对象本身，即proxy实例**
 
 #### Proxy支持拦截的操作有13种之多
 [es6-proxy](https://es6.ruanyifeng.com/#docs/proxy)
