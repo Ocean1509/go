@@ -8,8 +8,6 @@ Rollup 是一个 JavaScript 模块打包器，可以将小块代码编译成大�
 如果你需要代码拆分(Code Splitting)，或者你有很多静态资源需要处理，再或者你构建的项目需要引入很多CommonJS模块的依赖，那么 webpack 是个很不错的选择。如果您的代码库是基于 ES2015 模块的，而且希望你写的代码能够被其他人直接使用，你需要的打包工具可能是 Rollup 。
 
 
-生产环境
-    tree shaking
 
 常用的几种打包优化
 1. 入口配置：entry 入口  webpack.ProvidePlugin
