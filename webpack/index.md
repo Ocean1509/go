@@ -21,10 +21,6 @@ js压缩会被css压缩所影响 terser-webpack-plugin
 
 
 
-rollup
-
-
-
 操作系统的意义在于进程的调度
 时间片轮转
 
@@ -39,3 +35,20 @@ rollup
 多进程共享数据：
  消息，共享内存
 
+
+webpack优化
+
+1. alias别名
+2. 忽略已知模块解析,提高编译速度 
+```
+{
+    module: {
+        noParse: ""
+    }
+}
+```
+
+3. 将模块暴露给全局
+providePlugin
+
+4. 提取公共代码
