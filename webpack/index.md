@@ -36,6 +36,10 @@ js压缩会被css压缩所影响 terser-webpack-plugin
  消息，共享内存
 
 
+#### chunk 和 module
+
+一个entry打包出来一个chunk，一个chunk里依赖的模块是module
+
 webpack优化
 
 1. alias别名

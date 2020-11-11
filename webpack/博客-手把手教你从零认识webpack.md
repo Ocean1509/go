@@ -70,7 +70,7 @@ module.exports = {
 ```
 
 tips: 如何理解chunkFileName: 
-    chunkname 是未被列入entry 中， 却又需要被打包出来的文件命名配置， 例如，某些公共模块需要单独的抽离出来，这些公共模块就可以用chunkname 来命名
+    chunkname 是未被列入entry 中， 却又需要被打包出来的文件命名配置，例如，某些公共模块需要单独的抽离出来，这些公共模块就可以用chunkname 来命名
 可以见下面的代码分离部分
 
 ##### 3.2 配置多个入口文件

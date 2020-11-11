@@ -8,3 +8,14 @@
 
 
 
+
+相关包：
+    scripty：将执行脚本放到script目录，不需要在package.json中写shell脚本
+        // package.json 
+        {
+            scripts: {
+                client:dev: scripty,
+                client:prod: scripty
+            }
+        } 
+    yargs-parser: 获取命令行参数和环境参数
