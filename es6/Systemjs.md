@@ -77,3 +77,18 @@ System.register([], function (_export, _context) {
 ### 使用webpack完成自动化配置
 
 后续补齐
+
+
+
+```
+// example import at top of file
+import myModule from 'my-module'
+myModule.doSomething()
+
+// example dynamic import (could be placed anywhere in your code)
+// module not loaded until code is hit
+System.import('my-module').then((myModule) {
+  // myModule is available here
+  myModule.doSomething()
+});
+```
