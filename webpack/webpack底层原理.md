@@ -201,3 +201,34 @@ import(/*webpackChunkName:"test"*/'./index.js').then(_ => {
 3. 脱离cache loader, 自身完成缓存
 4. 深度tree-shaking   webpack4 需要安装插件 类似prepack
 5. 模块化 -> 微前端
+
+
+
+webpack
+	分阶段 => 生命周期
+
+控制整个构建流程的阶段  => compiler
+	对应阶段 => call => tap() => 要做的事情
+
+	负责不同的阶段，把不同阶段生命周期的狗子挂载到身上
+
+	初始化所有插件， 把不同阶段要做的事情，添加到对饮更多钩子里面
+	到不同阶段的时候，出发对应的插件钩子，调用对应的逻辑
+
+
+编译代码 => compiltion
+
+1. 编译runloader
+2. ast => addModule
+3. dependency
+	```
+	{
+		name: 'a.js',
+		code: '',
+		dep: [],
+		ast: ''
+	}
+
+	```
+4. 基于基础模板，构建模板，遍历依赖
+5. 生成文件
