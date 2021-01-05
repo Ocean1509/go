@@ -464,3 +464,142 @@ class MyPromise {
   }
 }
 ```
+
+12. Promsie.race 的实现
+```
+class MyPromse {
+  static race(promiseArray) {
+    return MyPromsie((resolve, reject) => {
+        for(let i = 0;i<arr.length;i++) {
+            promiseArray[i].then(data => {
+                resolve(data)
+            }).catch(err => {
+              reject(err)
+            })
+        }
+    })
+  }
+}
+```
+
+13. Promsie.allSettled 的实现
+
+Promise.allSettled()方法接受一组 Promise 实例作为参数，包装成一个新的 Promise 实例。只有等到所有这些参数实例都返回结果，不管是fulfilled还是rejected，包装实例才会结束。fulfilled时，对象有value属性，rejected时有reason属性，对应两种状态的返回值。
+
+例子：
+```
+const resolved = Promise.resolve(42);
+const rejected = Promise.reject(-1);
+
+const allSettledPromise = Promise.allSettled([resolved, rejected]);
+
+allSettledPromise.then(function (results) {
+  console.log(results);
+});
+// [
+//    { status: 'fulfilled', value: 42 },
+//    { status: 'rejected', reason: -1 }
+// ]
+```
+
+实现:
+```
+class MyPromise {
+  allSellted(promiseArray) {
+    return new MyPromsie((resolve) => {
+      let arr = [];
+      let idx = 0
+      for(let i = 0; i<promiseArray.length;i++) {
+        promiseArray[i].then(data => {
+          idx++;
+          arr.push({
+            status: 'fullfilled',
+            value: data
+          })
+        }).catch(err => {
+          idx++;
+          arr.push({
+            status: 'rejected',
+            reason: err
+          })
+        }).finally(() => {
+          if(idx === promiseArray.length) {
+            resolve(arr)
+          }
+        })
+      }
+    })
+  }
+}
+```
+
+14. promsie.any的实现
+
+与上面类似，一个fullfilled则resolve，所有的都rejected则返回rejected
+
+
+15. promise.resolve
+promise.resolve会将对象转化为promise对象，`promise.resolve('foo')`等价于 `new Promise((resolve) => resolve('foo'))`
+
+特别注意，promise.resolve的参数是一个promsie实例时，promise.resolve将不做任何修改，原封不动的返回这个实例
+
+```
+var p = Promise.resolve(1)
+var p1 = Promise.resolve(p)
+
+p === p1
+
+
+```
+
+
+
+16. resolve会拆箱，reject不会拆箱
+```
+var p1 = new Promise(function(resolve, reject){
+  resolve(Promise.resolve('resolve'));
+});
+
+var p2 = new Promise(function(resolve, reject){
+  resolve(Promise.reject('reject'));
+});
+
+var p3 = new Promise(function(resolve, reject){
+  reject(Promise.resolve('resolve'));
+});
+
+p1.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+p2.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+p3.then(
+  function fulfilled(value){
+    console.log('fulfilled: ' + value);
+  }, 
+  function rejected(err){
+    console.log('rejected: ' + err);
+  }
+);
+
+```
+```
+p3 rejected: [object Promise]
+p1 fulfilled: resolve
+p2 rejected: reject
+```
+Promise回调函数中的第一个参数resolve，会对Promise执行"拆箱"动作。即当resolve的参数是一个Promise对象时，resolve会"拆箱"获取这个Promise对象的状态和值，但这个过程是异步的。p1"拆箱"后，获取到Promise对象的状态是resolved，因此fulfilled回调被执行；p2"拆箱"后，获取到Promise对象的状态是rejected，因此rejected回调被执行。但Promise回调函数中的第二个参数reject不具备”拆箱“的能力，reject的参数会直接传递给then方法中的rejected回调。因此，即使p3 reject接收了一个resolved状态的Promise，then方法中被调用的依然是rejected，并且参数就是reject接收到的Promise对象。
+

@@ -205,7 +205,9 @@ var test = function test1() {
 
 
 10. window.length
+
 window.length 返回 iframe 数量
+
 
 11. eval会产生闭包
 题目：判断变量a是否被gc回收？
@@ -232,6 +234,9 @@ function test() {
 }
 test()()
 ```
+
+trycatch  with 也不会
+
 此时gc会被回收，因为此时eval的作用域在window
 
 12. 元编程
@@ -242,6 +247,7 @@ Symbol,Reflect,Proxy,reflect-metadata
 13. regenerator-runtime
 
 
+<<<<<<< HEAD
 14. new Function 和 eval
   new Function 和 eval 都可以将字符串转换为可执行代码，但是eval能够影响当前作用域及所有的父作用域的变量， 而new Function 它是运行在一个独立的function内， 并且他的父作用域是window而不是当前作用域
   
@@ -251,4 +257,21 @@ Symbol,Reflect,Proxy,reflect-metadata
   alert(a);
   new Function("var a=3;")();   //不改变当前作用域的变量
   alert(a);
+=======
+14. es5中怎么模拟块级作用域
+
+trycatch,with,eval都可以模拟，但是with会延长作用域链
+
+```
+try {
+  throw 1
+} catch(a) {
+  a = 1
+}
+
+/// 类似于
+{
+  let a = 1
+}
+>>>>>>> 57bdc5612857cfd5f6c4efeac8778e690b6aab19
 ```
