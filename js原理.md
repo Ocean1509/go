@@ -114,6 +114,25 @@ class Car {
 ```
 es5实现时，除了标准的寄生组合继承外，还需要遍历类的静态属性，拷贝一份到子类中。
 ```
+function Car(color) {
+  this.color = color
+}
+Car.prototype.say = function() {}
+
+function Cruze(color) {
+  Car.call(this, color)
+}
+
+Cruze.prototype = Object.create(Car.prototype, {
+  constructor: {
+    value: Cruze
+  }
+})
+// 或者
+Cruze.prototype = Object.create(Car.prototype)
+Cruze.prototype.construtor = Cruze
+
+
 for (let [key, value] of Object.entries(Car)) {
   Cruze[key] = value
 }
@@ -220,10 +239,16 @@ function test() {
 }
 test()()
 ```
-不会，eval执行的时候，由于无法判断变量a是否会被引用，所有会以闭包的形式保留a的值，所以a不会被gc回收。
+不会，eval执行的时候，由于无法判断变量a是否会被引用，所有会以闭包的形式保留a的值，所以a不会被gc回收。同样的trycatch  with 也不会
 
 tip: 1. 闭包是保留在堆中，所以会一直存在,直到外部空间销毁
      2. 如何在chrome操作gc： chrome -> memory
+     3. 为什么webpack里是eval封装，因为eval快，调试快
+      
+      带eval的模式能把每个模块的生成代码单独打在一行里，并且都以DataUrl的形式添加sourcemap，这样它在rebuild时会对每一个模块进行检查，如果没有发生改动，他就直接使用之前的SourceMap，所以它只需要为改动的模块重新生成SourceMap；而非eval的构建模式下生成代码是“原生”排列下来的，不管有任何模块作出修改，都会影响到最后bundle文件整体的行列格式，所以它每次都要重新生成整体的SourceMap，rebuild的速度会很慢。并且eval对代码转换较少。
+
+
+
 
 ```
 function test() {
@@ -234,9 +259,6 @@ function test() {
 }
 test()()
 ```
-
-trycatch  with 也不会
-
 此时gc会被回收，因为此时eval的作用域在window
 
 12. 元编程
@@ -262,4 +284,37 @@ try {
 {
   let a = 1
 }
+```
+
+15. eval 和 new Function的区别
+
+两个场景：
+  vue2中用到了new Function 和 with，with用来绑定this作用域，new Function用来生成渲染函数
+  webpack中用到eval，devtool有eval模式，少了将原生代码的转换，模块字符串用eval包裹，如果模块没有发生改变，不需要重新生成，加快编译
+
+```
+// template模板
+<div id="app" style="color: red;background: blue;"><p>hello {{name}}</p>{{msg}}</div>
+
+// 解析模板生成一段字符串,即渲染函数要执行的字符串
+let code = _c("div", {id: "app",style: {"color":" red","background":" blue"}},_c("p", undefined,_v("hello"+_s(name))),_v(_s(msg)))
+
+// 将渲染函数要执行的字符串传入new Function()生成渲染函数
+let renderFn = new Function(`with(this) {return ${code}}`);
+
+```
+
+区别：
+
+**eval中的代码执行时的作用域为当前作用域。它可以访问到函数中的局部变量。
+new Function中的代码执行时的作用域为全局作用域，不论它的在哪个地方调用的，它访问的都是全局变量。**
+
+```
+let foo = "foo";
+function bar() {
+    let foo = "bar";
+    eval("console.log(foo)"); // 输出bar
+    new Function("console.log(foo)")(); // 输出foo
+}
+bar();
 ```
