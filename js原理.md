@@ -269,6 +269,17 @@ Symbol,Reflect,Proxy,reflect-metadata
 13. regenerator-runtime
 
 
+
+14. new Function 和 eval
+  new Function 和 eval 都可以将字符串转换为可执行代码，但是eval能够影响当前作用域及所有的父作用域的变量， 而new Function 它是运行在一个独立的function内， 并且他的父作用域是window而不是当前作用域
+  
+```
+  var a = 1;
+  eval("var a=2;");   //改变了当前域的变量a
+  alert(a);
+  new Function("var a=3;")();   //不改变当前作用域的变量
+  alert(a);
+=======
 14. es5中怎么模拟块级作用域
 
 trycatch,with,eval都可以模拟，但是with会延长作用域链
