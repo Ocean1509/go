@@ -38,7 +38,7 @@ document.addEventListener('click', function() {
 ```
 
 
-4. 对象属性不适用箭头函数,此时this不指向ojb，而是指向window对象， 因为对象不构成单独的作用域。
+4. 对象属性不适用箭头函数,此时this不指向obj，而是指向window对象， 因为对象不构成单独的作用域。
 ```
 var obj = {
     test: () => {
