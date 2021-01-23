@@ -41,3 +41,20 @@ function binaryTobase64(code) {
     }
     return encode + res;
   }
+
+  // node
+
+  function transfer(str) {
+    let base64Code = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    let buf = Buffer.from(str);
+    let result = ""
+    console.log(buf)
+    for(let b of buf) {
+      result += b.toString(2)
+    }
+    return result.match(/\d{6}/g).map(val => parseInt(val, 2)).map(val => base64Code[val]).join('')
+  }
+
+  console.log(transfer("dfds"))
+
+

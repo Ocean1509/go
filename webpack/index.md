@@ -56,3 +56,24 @@ webpack优化
 providePlugin
 
 4. 提取公共代码
+
+
+
+css hint?(css treeshaking) - purifycss-webpack 
+深度分析scope
+
+
+webpack-dev-server 
+```
+// 可以mock数据
+before(app) {
+    app.get('/', () => {})
+} 
+```
+
+
+// mpa
+// nuxt  next  nest
+
+
+单页到多页的转换？

@@ -1,5 +1,13 @@
- #### node的事件机制和浏览器的事件机制有什么区别？ 
-[](https://user-gold-cdn.xitu.io/2019/1/11/1683d81674f076eb?imageslim)
+ ### 浏览器eventloop
+
+异步队列分为宏任务独立和微任务队列
+宏任务队列：
+    settimeout，setInterval，requestAnimationFrame
+微任务队列：
+    promise，mutationObserver
+
+ ### node的事件机制和浏览器的事件机制有什么区别？ 
+![](https://user-gold-cdn.xitu.io/2019/1/11/1683d81674f076eb?imageslim)
 node是以v8作为js的解析引擎，针对IO的处理交给了libuv，libuv是一个基于事件驱动的跨平台抽象层。
 具体过程是：
 我们写的代码应用application，先经过v8引擎进行编译，之后会调用nodeAPI执行相应事件，而libuv库则负责这一系列api的执行，他内部会将异步任务维持一个event-loop(事件循环)，最终v8引擎会将结果返回给用户。
@@ -41,7 +49,7 @@ fs.readFile('./test.html', () => {
 process.nextTick 的用处？
 https://www.cnblogs.com/duhuo/p/4420473.html
 
-#### 不同版本下eventloop的不同
+### 不同版本下eventloop的不同
 
 node11版本之前
 一旦执行一个阶段，会先将这个阶段里的所有任务执行完成之后，才会执行该阶段剩下的微任务
@@ -73,3 +81,70 @@ setTimeout(() => {
 // node11以前
 // timer1, timer2, promise1, promise2
 ```
+
+
+### 题目
+```
+async function async1() {
+    console.log('async start');
+    await new Promise(resolve => {
+        console.log('promise1')
+    })
+    console.log('async1 success')
+    return 'async1 end'
+}
+
+console.log('script start')
+
+async1().then(res => console.log(res))
+
+console.log('script end')
+
+// script start
+// async start
+// promise1
+// script end
+```
+
+await 会等待promise的执行结果，题目中await new Promsie()没有resolve，reject返回，所有后面都不会执行。
+
+
+
+### 题目
+```
+async function async1() {
+    console.log('async1 start', 1)
+    return new Promise(resolve => {
+        resolve(async2())
+    }).then(() => {
+        console.log('async1 end', 4)
+    })
+}
+
+function async2() {
+    console.log('async2', 2)
+}
+
+setTimeout(function() {
+    console.log('settimeout')
+})
+async1()
+
+new Promise((resolve) => {
+    console.log("promise1", 3)
+    resolve()
+}).then(() => {
+    console.log('promise2')
+}).then(() => {
+    console.log('promise3')
+}).then(() => {
+    console.log('promsie4')
+})
+
+// async1 start, async2, promise1, async1 end , promise2, promise3, promsie4, settimout
+```
+如果将 `function async3() {}` 改为 `async function async3() {}`输出变为
+```
+async1 start async2 promise1, promise2, promise3, async1 end promise4
+```
+resolve参数是promise对象，或者then对象，会进行拆箱。

@@ -119,13 +119,16 @@ node中流的类型有4种：
     4. transform: 转换流
 
 如何使用
+
     可读流:
+
         有两种模式，一种是自动流动flowing模式，另一种是手动流动paused模式
+
         1. rs.on('data', () => {})
-        2. rs.on('readalbe', () => {
+        2. rs.on('readable', () => {
             while((chunk = rs.read())!== null) {
                 data += chunk
-            }
+            }l
         })
 
 应用：

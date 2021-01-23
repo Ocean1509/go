@@ -103,6 +103,7 @@ if(a == 1 && a == 2 && a == 3) {
 ```
 var a = {
     [Symbol.toPrimitive]:((i) => () => ++i)(0)
+    
 }
 if (a == 1 && a == 2 && a == 3) {
     console.log(true) // true

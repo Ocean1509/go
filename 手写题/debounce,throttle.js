@@ -16,7 +16,7 @@ function debounce(fn, delay) {
 function throttle(fn, delay) {
     let flag = false;
     return function(...args) {
-        if(flag) {
+        if(!flag) {
             flag = true;
             setTimeout(() => {
                 fn.apply(this, args)
