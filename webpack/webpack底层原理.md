@@ -5,6 +5,9 @@ Hash:和整个项目目的构建相关，只要项目目文文件有修改，整
 Chunkhash :和 webpack 打包的 chunk 有关，不同的 entry 会生生成不不同的 chunkhash 值
 Contenthash:根据文文件内容来定义 hash ，文文件内容不不变，则 contenthash 不变
 
+#### watch原理
+webpack中watch的原理是利用轮询，判断文件最后编辑时间是否改变，某个文件发生改变，并不会立即通知，而是缓存起来，汇总得到轮询在一起返回。
+
 
 #### 原理
 webpack实现了commonjs规范，commonjs是node的模块化，而commonjs是同步阻塞式加载，为了实现commonjs规范，，webpack封装了自己的模块化，把所有模块和模块之间的依赖都展平，并以key：value都形式将模块展平后的对象传给一个闭包函数。
@@ -15,32 +18,32 @@ webpack实现了commonjs规范，commonjs是node的模块化，而commonjs是同
 	var installedModules = {};
 	// The require function
 	function __webpack_require__(moduleId) {
-    // Check if module is in cache
-    // 检查缓存模块，分析过的模块做混存
+		// Check if module is in cache
+		// 检查缓存模块，分析过的模块做混存
 		if(installedModules[moduleId]) {
 			return installedModules[moduleId].exports;
 		}
-    // Create a new module (and put it into the cache)
-    // 构建新的模块化规范
-    // installedModules {
-    //  [moduleId]: {
-    //      exports: {
-    //      },
-    //      i: moduleId,
-    //      l: false
-    //  }
-    // }
+		// Create a new module (and put it into the cache)
+		// 构建新的模块化规范
+		// installedModules {
+		//  [moduleId]: {
+		//      exports: {
+		//      },
+		//      i: moduleId,
+		//      l: false
+		//  }
+		// }
 		var module = installedModules[moduleId] = {
 			i: moduleId,
 			l: false,
 			exports: {}
 		};
-    // Execute the module function
-    // 函数执行，绑定this
-    // module，module.exports, __webpack_require__作为参数形式传递给函数
+		// Execute the module function
+		// 函数执行，绑定this
+		// module，module.exports, __webpack_require__作为参数形式传递给函数
 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-    // Flag the module as loaded
-    // 标记模块已经加载完毕
+		// Flag the module as loaded
+		// 标记模块已经加载完毕
 		module.l = true;
 		// Return the exports of the module
 		return module.exports;

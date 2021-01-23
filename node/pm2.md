@@ -174,3 +174,8 @@ console.log(process.pid, child.pid);
 在 Nodejs 中自带的 Cluster 模块正是采用的第二种方案。
 
 
+
+### fork 和cluster
+
+fork是指fork主线程
+cluster是利用多核
