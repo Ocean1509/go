@@ -1,0 +1,1305 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Node Eventloop · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="node.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Es6</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../es6/Decorators.html">
+            
+                <a href="../es6/Decorators.html">
+            
+                    
+                    Decorators
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../es6/Proxy&Reflect.html">
+            
+                <a href="../es6/Proxy&Reflect.html">
+            
+                    
+                    Proxy&Reflect
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../es6/Systemjs.html">
+            
+                <a href="../es6/Systemjs.html">
+            
+                    
+                    Systemjs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../es6/es6.html">
+            
+                <a href="../es6/es6.html">
+            
+                    
+                    Es6
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../es6/symbol.html">
+            
+                <a href="../es6/symbol.html">
+            
+                    
+                    Symbol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../es6/this.html">
+            
+                <a href="../es6/this.html">
+            
+                    
+                    This
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../es6/原型链.html">
+            
+                <a href="../es6/原型链.html">
+            
+                    
+                    原型链
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Html</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../html/css安全.html">
+            
+                <a href="../html/css安全.html">
+            
+                    
+                    Css安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../html/img.html">
+            
+                <a href="../html/img.html">
+            
+                    
+                    Img
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../html/script.html">
+            
+                <a href="../html/script.html">
+            
+                    
+                    Script
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Imgs</li>
+        
+        
+    
+
+    
+        
+        <li class="header">Js</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../js/encodeURI和encodeURIComponent.html">
+            
+                <a href="../js/encodeURI和encodeURIComponent.html">
+            
+                    
+                    EncodeURI和EncodeURIComponent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Node</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="Buffer.html">
+            
+                <a href="Buffer.html">
+            
+                    
+                    Buffer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="cookie.html">
+            
+                <a href="cookie.html">
+            
+                    
+                    Cookie
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="express&koa.html">
+            
+                <a href="express&koa.html">
+            
+                    
+                    Express&Koa
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.4" data-path="express.html">
+            
+                <a href="express.html">
+            
+                    
+                    Express
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.6" data-path="node-eventloop.html">
+            
+                <a href="node-eventloop.html">
+            
+                    
+                    Node Eventloop
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.7" data-path="node.html">
+            
+                <a href="node.html">
+            
+                    
+                    Node
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.8" data-path="npx.html">
+            
+                <a href="npx.html">
+            
+                    
+                    Npx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.9" data-path="pm2.html">
+            
+                <a href="pm2.html">
+            
+                    
+                    Pm2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.10" data-path="v8内存.html">
+            
+                <a href="v8内存.html">
+            
+                    
+                    V8内存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.11" data-path="常用库.html">
+            
+                <a href="常用库.html">
+            
+                    
+                    常用库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.12" data-path="模块化.html">
+            
+                <a href="模块化.html">
+            
+                    
+                    模块化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.13" data-path="跨域.html">
+            
+                <a href="跨域.html">
+            
+                    
+                    跨域
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.14" data-path="错误处理.html">
+            
+                <a href="错误处理.html">
+            
+                    
+                    错误处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">React</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../react/">
+            
+                <a href="../react/">
+            
+                    
+                    Index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../react/react-router.html">
+            
+                <a href="../react/react-router.html">
+            
+                    
+                    React Router
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../react/reacthook.html">
+            
+                <a href="../react/reacthook.html">
+            
+                    
+                    Reacthook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../react/setState.html">
+            
+                <a href="../react/setState.html">
+            
+                    
+                    SetState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../react/this.html">
+            
+                <a href="../react/this.html">
+            
+                    
+                    This
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Typescript</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../typescript/基础理解1.html">
+            
+                <a href="../typescript/基础理解1.html">
+            
+                    
+                    基础理解1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../typescript/枚举.html">
+            
+                <a href="../typescript/枚举.html">
+            
+                    
+                    枚举
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Webpack</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../webpack/CMD vs AMD.html">
+            
+                <a href="../webpack/CMD vs AMD.html">
+            
+                    
+                    CMD Vs AMD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../webpack/ast.html">
+            
+                <a href="../webpack/ast.html">
+            
+                    
+                    Ast
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../webpack/devtool.html">
+            
+                <a href="../webpack/devtool.html">
+            
+                    
+                    Devtool
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.4" data-path="../webpack/external的理解.html">
+            
+                <a href="../webpack/external的理解.html">
+            
+                    
+                    External的理解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.5" data-path="../webpack/">
+            
+                <a href="../webpack/">
+            
+                    
+                    Index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.6" data-path="../webpack/project.html">
+            
+                <a href="../webpack/project.html">
+            
+                    
+                    Project
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.7" data-path="../webpack/scope-hoisting.html">
+            
+                <a href="../webpack/scope-hoisting.html">
+            
+                    
+                    Scope Hoisting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.8" data-path="../webpack/tapable.html">
+            
+                <a href="../webpack/tapable.html">
+            
+                    
+                    Tapable
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.9" data-path="../webpack/treeShaking.html">
+            
+                <a href="../webpack/treeShaking.html">
+            
+                    
+                    TreeShaking
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.10" data-path="../webpack/webpack底层原理.html">
+            
+                <a href="../webpack/webpack底层原理.html">
+            
+                    
+                    Webpack底层原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.11" data-path="../webpack/优化.html">
+            
+                <a href="../webpack/优化.html">
+            
+                    
+                    优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.12" data-path="../webpack/博客-手把手教你从零认识webpack.html">
+            
+                <a href="../webpack/博客-手把手教你从零认识webpack.html">
+            
+                    
+                    博客 手把手教你从零认识Webpack
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.13" data-path="../webpack/博客-浅谈webpack4性能优化.html">
+            
+                <a href="../webpack/博客-浅谈webpack4性能优化.html">
+            
+                    
+                    博客 浅谈Webpack4性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.14" data-path="../webpack/模块热更新.html">
+            
+                <a href="../webpack/模块热更新.html">
+            
+                    
+                    模块热更新
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Xmind</li>
+        
+        
+    
+
+    
+        
+        <li class="header">性能优化</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../性能优化/IOC.html">
+            
+                <a href="../性能优化/IOC.html">
+            
+                    
+                    IOC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../性能优化/localstorage扩容.html">
+            
+                <a href="../性能优化/localstorage扩容.html">
+            
+                    
+                    Localstorage扩容
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="../性能优化/node.html">
+            
+                <a href="../性能优化/node.html">
+            
+                    
+                    Node
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.4" data-path="../性能优化/requestIdleCallback和requestAnimationFrame.html">
+            
+                <a href="../性能优化/requestIdleCallback和requestAnimationFrame.html">
+            
+                    
+                    RequestIdleCallback和RequestAnimationFrame
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.5" data-path="../性能优化/多普勒测速.html">
+            
+                <a href="../性能优化/多普勒测速.html">
+            
+                    
+                    多普勒测速
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.6" data-path="../性能优化/帧模式.html">
+            
+                <a href="../性能优化/帧模式.html">
+            
+                    
+                    帧模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.7" data-path="../性能优化/性能优化.html">
+            
+                <a href="../性能优化/性能优化.html">
+            
+                    
+                    性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.8" data-path="../性能优化/浏览器渲染过程.html">
+            
+                <a href="../性能优化/浏览器渲染过程.html">
+            
+                    
+                    浏览器渲染过程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.9" data-path="../性能优化/监控.html">
+            
+                <a href="../性能优化/监控.html">
+            
+                    
+                    监控
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.10" data-path="../性能优化/知乎汇总.html">
+            
+                <a href="../性能优化/知乎汇总.html">
+            
+                    
+                    知乎汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.11" data-path="../性能优化/重排.html">
+            
+                <a href="../性能优化/重排.html">
+            
+                    
+                    重排
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.12" data-path="../性能优化/雅虎军规.html">
+            
+                <a href="../性能优化/雅虎军规.html">
+            
+                    
+                    雅虎军规
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.13" data-path="../性能优化/面向切面编程.html">
+            
+                <a href="../性能优化/面向切面编程.html">
+            
+                    
+                    面向切面编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">手写题</li>
+        
+        
+    
+
+    
+        
+        <li class="header">网络</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../网络/cookie&session.html">
+            
+                <a href="../网络/cookie&session.html">
+            
+                    
+                    Cookie&Session
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../网络/http.html">
+            
+                <a href="../网络/http.html">
+            
+                    
+                    Http
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.3" data-path="../网络/https.html">
+            
+                <a href="../网络/https.html">
+            
+                    
+                    Https
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.4" data-path="../网络/tcp.html">
+            
+                <a href="../网络/tcp.html">
+            
+                    
+                    Tcp
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.5" data-path="../网络/xmlhttprequest&fetch.html">
+            
+                <a href="../网络/xmlhttprequest&fetch.html">
+            
+                    
+                    Xmlhttprequest&Fetch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.6" data-path="../网络/浏览器缓存.html">
+            
+                <a href="../网络/浏览器缓存.html">
+            
+                    
+                    浏览器缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">项目</li>
+        
+        
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Node Eventloop</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x6D4F;&#x89C8;&#x5668;eventloop">&#x6D4F;&#x89C8;&#x5668;eventloop</h3>
+<p>&#x5F02;&#x6B65;&#x961F;&#x5217;&#x5206;&#x4E3A;&#x5B8F;&#x4EFB;&#x52A1;&#x72EC;&#x7ACB;&#x548C;&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;
+&#x5B8F;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#xFF1A;
+    settimeout&#xFF0C;setInterval&#xFF0C;requestAnimationFrame
+&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#xFF1A;
+    promise&#xFF0C;mutationObserver</p>
+<h3 id="node&#x7684;&#x4E8B;&#x4EF6;&#x673A;&#x5236;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4E8B;&#x4EF6;&#x673A;&#x5236;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF1F;">node&#x7684;&#x4E8B;&#x4EF6;&#x673A;&#x5236;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x4E8B;&#x4EF6;&#x673A;&#x5236;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#xFF1F;</h3>
+<p><img src="https://user-gold-cdn.xitu.io/2019/1/11/1683d81674f076eb?imageslim" alt="">
+node&#x662F;&#x4EE5;v8&#x4F5C;&#x4E3A;js&#x7684;&#x89E3;&#x6790;&#x5F15;&#x64CE;&#xFF0C;&#x9488;&#x5BF9;IO&#x7684;&#x5904;&#x7406;&#x4EA4;&#x7ED9;&#x4E86;libuv&#xFF0C;libuv&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;&#x9A71;&#x52A8;&#x7684;&#x8DE8;&#x5E73;&#x53F0;&#x62BD;&#x8C61;&#x5C42;&#x3002;
+&#x5177;&#x4F53;&#x8FC7;&#x7A0B;&#x662F;&#xFF1A;
+&#x6211;&#x4EEC;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x5E94;&#x7528;application&#xFF0C;&#x5148;&#x7ECF;&#x8FC7;v8&#x5F15;&#x64CE;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x4E4B;&#x540E;&#x4F1A;&#x8C03;&#x7528;nodeAPI&#x6267;&#x884C;&#x76F8;&#x5E94;&#x4E8B;&#x4EF6;&#xFF0C;&#x800C;libuv&#x5E93;&#x5219;&#x8D1F;&#x8D23;&#x8FD9;&#x4E00;&#x7CFB;&#x5217;api&#x7684;&#x6267;&#x884C;&#xFF0C;&#x4ED6;&#x5185;&#x90E8;&#x4F1A;&#x5C06;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7EF4;&#x6301;&#x4E00;&#x4E2A;event-loop(&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;)&#xFF0C;&#x6700;&#x7EC8;v8&#x5F15;&#x64CE;&#x4F1A;&#x5C06;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;&#x3002;</p>
+<p>event-loop&#x6709;&#x516D;&#x4E2A;&#x9636;&#x6BB5;
+timer: &#x6267;&#x884C;setTimeout,setInterval&#x4E4B;&#x7C7B;&#x7684;&#x5B9A;&#x65F6;&#x5668;
+pending callback&#xFF1A; &#x5904;&#x7406;&#x4E0A;&#x4E2A;&#x5FAA;&#x73AF;&#x9636;&#x6BB5;&#x5C11;&#x6570;&#x672A;&#x6267;&#x884C;&#x7684;IO&#x56DE;&#x8C03;
+idle,prepare: &#x5185;&#x90E8;&#x9636;&#x6BB5;&#x8C03;&#x7528;
+poll&#xFF1A;
+    &#x6267;&#x884C;&#x6240;&#x6709;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;IO&#x56DE;&#x8C03;&#xFF0C;&#x5F53;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;
+        &#x5982;&#x679C;&#x6709;setTimeout,setInterval&#x7684;&#x56DE;&#x8C03;&#x9700;&#x8981;&#x6267;&#x884C;&#xFF0C;&#x5219;&#x8DF3;&#x5230;timer&#x9636;&#x6BB5;
+        &#x5982;&#x679C;&#x6CA1;&#x6709;timer&#x56DE;&#x8C03;&#xFF0C;&#x5219;&#x4F1A;&#x8FDB;&#x5165;check&#x9636;&#x6BB5;&#xFF0C;&#x6267;&#x884C;setImmediate&#x56DE;&#x8C03;,&#x5982;&#x679C;&#x6CA1;&#x6709;setImmediate&#x56DE;&#x8C03;&#xFF0C;&#x5219;&#x4F1A;&#x5728;poll&#x961F;&#x5217;&#x4E2D;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#xFF0C;&#x4F46;&#x662F;&#x4F9D;&#x65E7;&#x6709;&#x4E2A;&#x8D85;&#x65F6;&#x9650;&#x5236;&#x3002;
+check&#xFF1A;&#x6267;&#x884C;setImmediate&#x56DE;&#x8C03;</p>
+<p>&#x91CD;&#x70B9;&#x5173;&#x6CE8; timer&#xFF0C;poll&#xFF0C;check</p>
+<p>&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x5728;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x5728;&#x5207;&#x6362;&#x5230;&#x4E0B;&#x4E2A;&#x9636;&#x6BB5;&#x524D;&#xFF0C;&#x4F1A;&#x6267;&#x884C;process.nextTick</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre class="language-"><code>setTimeout(_ =&gt; console.log(&quot;setTimeout&quot;))
+setImmediate(_ =&gt; console.log(&quot;setImmediate&quot;))
+// setImmeidate,setTimeout
+// setTimeout,setImmeidate
+</code></pre><p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x548C;&#x673A;&#x5668;&#x7684;&#x6027;&#x80FD;&#x6709;&#x5173;&#xFF0C;setTimeout,setImmediate&#x90FD;&#x6709;&#x6267;&#x884C;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x8FDB;&#x5165;poll&#x9636;&#x6BB5;&#x65F6;&#xFF0C;setTimeout&#x56DE;&#x8C03;&#x5DF2;&#x7ECF;&#x63D2;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x5219;&#x4F1A;&#x5148;&#x6267;&#x884C;setTimeout&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x518D;&#x6267;&#x884C;setImmediate&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x76F8;&#x53CD;&#xFF0C;&#x4F1A;&#x5148;&#x6267;&#x884C;setImmediate&#x540E;&#x518D;&#x6267;&#x884C;setTimeout</p>
+<pre class="language-"><code>const fs = require(&quot;fs&quot;)
+fs.readFile(&apos;./test.html&apos;, () =&gt; {
+    setTimeout(_ =&gt; console.log(&quot;setTimeout&quot;))
+    setImmediate(_ =&gt; console.log(&quot;setImmediate&quot;))
+})
+</code></pre><p>// setImmediate, setTimeout, &#x5148;check&#xFF0C;&#x518D;timer</p>
+<p>process.nextTick &#x7684;&#x7528;&#x5904;&#xFF1F;
+<a href="https://www.cnblogs.com/duhuo/p/4420473.html" target="_blank">https://www.cnblogs.com/duhuo/p/4420473.html</a></p>
+<h3 id="&#x4E0D;&#x540C;&#x7248;&#x672C;&#x4E0B;eventloop&#x7684;&#x4E0D;&#x540C;">&#x4E0D;&#x540C;&#x7248;&#x672C;&#x4E0B;eventloop&#x7684;&#x4E0D;&#x540C;</h3>
+<p>node11&#x7248;&#x672C;&#x4E4B;&#x524D;
+&#x4E00;&#x65E6;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#xFF0C;&#x4F1A;&#x5148;&#x5C06;&#x8FD9;&#x4E2A;&#x9636;&#x6BB5;&#x91CC;&#x7684;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x8BE5;&#x9636;&#x6BB5;&#x5269;&#x4E0B;&#x7684;&#x5FAE;&#x4EFB;&#x52A1;</p>
+<p>node11&#x7248;&#x672C;&#x4E4B;&#x540E;
+&#x4E00;&#x65E6;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x91CC;&#x7684;&#x4E00;&#x4E2A;&#x5B8F;&#x4EFB;&#x52A1;&#xFF0C;&#x5C31;&#x7ACB;&#x523B;&#x6267;&#x884C;&#x5BF9;&#x5E94;&#x7684;&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A; process.nextTick&#x867D;&#x7136;&#x4E5F;&#x5C5E;&#x4E8E;&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#xFF0C;&#x4F46;&#x662F;&#x4ED6;&#x6BD4;&#x8F83;&#x7279;&#x6B8A;&#xFF0C;&#x4F1A;&#x5728;&#x6BCF;&#x4E2A;&#x9636;&#x6BB5;&#x6267;&#x884C;&#x524D;&#x6E05;&#x7A7A;process.nextTick&#x7684;&#x56DE;&#x8C03;&#x3002;</p>
+<pre class="language-"><code>
+setTimeout(() =&gt; {
+    console.log(&quot;timer1&quot;)
+    Promise.resolve().then(function() {
+        conosle.log(&quot;promise1&quot;)
+    })
+}, 0)
+setTimeout(() =&gt; {
+    console.log(&quot;timer2&quot;)
+    Promise.resolve().then(function() {
+        conosle.log(&quot;promise2&quot;)
+    })
+}, 0)
+
+
+// node11
+// timer1, promise1, timer2, promise2
+
+// node11&#x4EE5;&#x524D;
+// timer1, timer2, promise1, promise2
+</code></pre><h3 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h3>
+<pre class="language-"><code>async function async1() {
+    console.log(&apos;async start&apos;);
+    await new Promise(resolve =&gt; {
+        console.log(&apos;promise1&apos;)
+    })
+    console.log(&apos;async1 success&apos;)
+    return &apos;async1 end&apos;
+}
+
+console.log(&apos;script start&apos;)
+
+async1().then(res =&gt; console.log(res))
+
+console.log(&apos;script end&apos;)
+
+// script start
+// async start
+// promise1
+// script end
+</code></pre><p>await &#x4F1A;&#x7B49;&#x5F85;promise&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF0C;&#x9898;&#x76EE;&#x4E2D;await new Promsie()&#x6CA1;&#x6709;resolve&#xFF0C;reject&#x8FD4;&#x56DE;&#xFF0C;&#x6240;&#x6709;&#x540E;&#x9762;&#x90FD;&#x4E0D;&#x4F1A;&#x6267;&#x884C;&#x3002;</p>
+<h3 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h3>
+<pre class="language-"><code>async function async1() {
+    console.log(&apos;async1 start&apos;, 1)
+    return new Promise(resolve =&gt; {
+        resolve(async2())
+    }).then(() =&gt; {
+        console.log(&apos;async1 end&apos;, 4)
+    })
+}
+
+function async2() {
+    console.log(&apos;async2&apos;, 2)
+}
+
+setTimeout(function() {
+    console.log(&apos;settimeout&apos;)
+})
+async1()
+
+new Promise((resolve) =&gt; {
+    console.log(&quot;promise1&quot;, 3)
+    resolve()
+}).then(() =&gt; {
+    console.log(&apos;promise2&apos;)
+}).then(() =&gt; {
+    console.log(&apos;promise3&apos;)
+}).then(() =&gt; {
+    console.log(&apos;promsie4&apos;)
+})
+
+// async1 start, async2, promise1, async1 end , promise2, promise3, promsie4, settimout
+</code></pre><p>&#x5982;&#x679C;&#x5C06; <code>function async3() {}</code> &#x6539;&#x4E3A; <code>async function async3() {}</code>&#x8F93;&#x51FA;&#x53D8;&#x4E3A;</p>
+<pre class="language-"><code>async1 start async2 promise1, promise2, promise3, async1 end promise4
+</code></pre><p>resolve&#x53C2;&#x6570;&#x662F;promise&#x5BF9;&#x8C61;&#xFF0C;&#x6216;&#x8005;then&#x5BF9;&#x8C61;&#xFF0C;&#x4F1A;&#x8FDB;&#x884C;&#x62C6;&#x7BB1;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Index">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="node.html" class="navigation navigation-next " aria-label="Next page: Node">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Node Eventloop","level":"5.6","depth":1,"next":{"title":"Node","level":"5.7","depth":1,"path":"node/node.md","ref":"node/node.md","articles":[]},"previous":{"title":"Index","level":"5.5","depth":1,"path":"node/index.md","ref":"node/index.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["summary","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"summary":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"node/node-eventloop.md","mtime":"2021-01-23T08:13:18.522Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-18T03:12:29.343Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-book-summary-scroll-position-saver/book-summary-scroll-position-saver.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
