@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>原型链 · GitBook</title>
+        <title>源码 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,7 +69,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../html/css安全.html" />
+    <link rel="next" href="../typescript/基础理解1.html" />
     
     
     <link rel="prev" href="this.html" />
@@ -116,9 +116,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="Decorators.html">
+        <li class="chapter " data-level="1.2" data-path="../es6/Decorators.html">
             
-                <a href="Decorators.html">
+                <a href="../es6/Decorators.html">
             
                     
                     Decorators
@@ -129,9 +129,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="Proxy&Reflect.html">
+        <li class="chapter " data-level="1.3" data-path="../es6/Proxy&Reflect.html">
             
-                <a href="Proxy&Reflect.html">
+                <a href="../es6/Proxy&Reflect.html">
             
                     
                     Proxy&Reflect
@@ -142,9 +142,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="Systemjs.html">
+        <li class="chapter " data-level="1.4" data-path="../es6/Systemjs.html">
             
-                <a href="Systemjs.html">
+                <a href="../es6/Systemjs.html">
             
                     
                     Systemjs
@@ -155,9 +155,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="es6.html">
+        <li class="chapter " data-level="1.5" data-path="../es6/es6.html">
             
-                <a href="es6.html">
+                <a href="../es6/es6.html">
             
                     
                     Es6
@@ -168,9 +168,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="symbol.html">
+        <li class="chapter " data-level="1.6" data-path="../es6/symbol.html">
             
-                <a href="symbol.html">
+                <a href="../es6/symbol.html">
             
                     
                     Symbol
@@ -181,9 +181,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="this.html">
+        <li class="chapter " data-level="1.7" data-path="../es6/this.html">
             
-                <a href="this.html">
+                <a href="../es6/this.html">
             
                     
                     This
@@ -194,9 +194,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.8" data-path="原型链.html">
+        <li class="chapter " data-level="1.8" data-path="../es6/原型链.html">
             
-                <a href="原型链.html">
+                <a href="../es6/原型链.html">
             
                     
                     原型链
@@ -476,9 +476,9 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../react/">
+        <li class="chapter " data-level="6.1" data-path="./">
             
-                <a href="../react/">
+                <a href="./">
             
                     
                     Index
@@ -489,9 +489,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.2" data-path="../react/react-router.html">
+        <li class="chapter " data-level="6.2" data-path="react-router.html">
             
-                <a href="../react/react-router.html">
+                <a href="react-router.html">
             
                     
                     React Router
@@ -502,9 +502,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.3" data-path="../react/reacthook.html">
+        <li class="chapter " data-level="6.3" data-path="reacthook.html">
             
-                <a href="../react/reacthook.html">
+                <a href="reacthook.html">
             
                     
                     Reacthook
@@ -515,9 +515,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.4" data-path="../react/setState.html">
+        <li class="chapter " data-level="6.4" data-path="setState.html">
             
-                <a href="../react/setState.html">
+                <a href="setState.html">
             
                     
                     SetState
@@ -528,9 +528,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.5" data-path="../react/this.html">
+        <li class="chapter " data-level="6.5" data-path="this.html">
             
-                <a href="../react/this.html">
+                <a href="this.html">
             
                     
                     This
@@ -541,9 +541,9 @@
             
         </li>
     
-        <li class="chapter " data-level="6.6" data-path="../react/源码.html">
+        <li class="chapter active" data-level="6.6" data-path="源码.html">
             
-                <a href="../react/源码.html">
+                <a href="源码.html">
             
                     
                     源码
@@ -1088,7 +1088,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >原型链</a>
+        <a href=".." >源码</a>
     </h1>
 </div>
 
@@ -1103,7 +1103,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><img src="../imgs/prototype.png" alt=""></p>
+                                <h3 id="thissetstate&#x662F;&#x5F02;&#x6B65;&#x8FD8;&#x662F;&#x540C;&#x6B65;&#x7684;">this.setState&#x662F;&#x5F02;&#x6B65;&#x8FD8;&#x662F;&#x540C;&#x6B65;&#x7684;</h3>
+<p>&#x7B54;&#xFF1A;&#x9700;&#x8981;&#x770B;setState&#x7684;&#x8C03;&#x7528;&#x65F6;&#x673A;&#x3002;&#x6838;&#x5FC3;&#x5728;&#x4E8E;&#x8C03;&#x5EA6;&#x6838;&#x5FC3;scheduleWork&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x6279;&#x5904;&#x7406;&#xFF0C;&#x5219;&#x4F1A;&#x5408;&#x5E76;&#x6267;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x975E;&#x6279;&#x5904;&#x7406;&#xFF0C;&#x5219;&#x4F1A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x3002;
+&#x751F;&#x547D;&#x5468;&#x671F;&#xFF1A;isBatchUpdate = true     &#x5F02;&#x6B65;
+&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x4E2D;&#xFF1A;isBatchUpdate = true   &#x5F02;&#x6B65;
+&#x539F;&#x751F;&#x4E8B;&#x4EF6;&#xFF1A; isBatchUpdate = false   &#x540C;&#x6B65;
+setTimeout&#xFF1A;isBatchUpdate = false  &#x540C;&#x6B65;
+isBatchUpdate&#x4E3A;true&#x65F6;&#xFF0C;&#x901A;&#x8FC7;try finally&#x5C06;&#x591A;&#x4E2A;&#x5904;&#x7406;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#xFF0C;&#x6700;&#x7EC8;&#x5728;finally&#x4E2D;&#x7EDF;&#x4E00;&#x5904;&#x7406;&#xFF0C;&#x6240;&#x4EE5;&#x770B;&#x8D77;&#x6765;&#x662F;&#x5F02;&#x6B65;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x8FD8;&#x662F;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x653E;&#x5230;&#x5B8F;&#x4EFB;&#x52A1;&#x4E2D;&#x5904;&#x7406;&#x3002;</p>
+<h3 id="&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;">&#x4EFB;&#x52A1;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;</h3>
+<p>&#x6700;&#x9AD8;&#x4F18;&#x5148;&#x7EA7; ImmediatePriority - &#x4E0D;&#x5B9A;&#xFF1A;render ReactDOM.render  commitRoot
+&#x7528;&#x6237;&#x64CD;&#x4F5C;   UserBlockPriority 
+&#x5E38;&#x89C4;&#x4F18;&#x5148;&#x7EA7; NormalPriority
+&#x4F4E;&#x4F18;&#x5148;&#x7EA7;   LowPriority</p>
+<h3 id="&#x9898;&#x76EE;">&#x9898;&#x76EE;</h3>
+<p>&#x9898;&#x76EE;&#xFF1A; </p>
+<pre class="language-"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>father</span><span class="token punctuation">&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>child1</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>child3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>child3</span><span class="token punctuation">&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>child1</span><span class="token punctuation">&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>child2</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>child2</span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>father</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>getSnapshotBeforeUpdate&#xFF0C;didmount&#x4EC0;&#x4E48;&#x987A;&#x5E8F;&#x6267;&#x884C;&#xFF1F;</p>
+<p>child3   getSnapshotBeforeUpdate
+child1   getSnapshotBeforeUpdate
+child2   getSnapshotBeforeUpdate
+father   getSnapshotBeforeUpdate</p>
+<p>child3   didmount
+child1   didmount
+child2   didmount
+father   didmount</p>
+<p>&#x539F;&#x56E0;&#xFF1A;</p>
+<ol>
+<li>&#x7EC4;&#x4EF6;&#x7684;&#x904D;&#x5386;&#x662F;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x904D;&#x5386;&#xFF0C;&#x6240;&#x4EE5;&#x4ECE;&#x5B50;&#x5230;&#x7236;</li>
+<li>commit&#x9636;&#x6BB5;&#x4F1A;&#x6267;&#x884C;&#x4E09;&#x4E2A;while&#x5FAA;&#x73AF;&#xFF0C;&#x6BCF;&#x4E2A;while&#x90FD;&#x662F;&#x6DF1;&#x5EA6;&#x904D;&#x5386;&#xFF0C;&#x4F1A;&#x6267;&#x884C;&#x5B8C;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x4F8B;&#x5982;getSnapshotBeforeUpdat&#x5728;&#x7B2C;&#x4E00;&#x4E2A;while&#x4E2D;&#xFF0C;didMount&#x5728;&#x7B2C;&#x4E09;&#x4E2A;while&#x4E2D;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;while&#x662F;&#x771F;&#x6B63;&#x7684;&#x6E32;&#x67D3;</li>
+</ol>
+<h3 id="useeffectfn--&#x548C;-componentdidmount-&#x6709;&#x4EC0;&#x4E48;&#x5DEE;&#x5F02;&#xFF1F;">useEffect(fn, []) &#x548C; componentDidMount &#x6709;&#x4EC0;&#x4E48;&#x5DEE;&#x5F02;&#xFF1F;</h3>
+<p>useEffect &#x4F1A;&#x6355;&#x83B7; props &#x548C; state&#x3002;&#x6240;&#x4EE5;&#x5373;&#x4FBF;&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x91CC;&#xFF0C;&#x4F60;&#x62FF;&#x5230;&#x7684;&#x8FD8;&#x662F;&#x521D;&#x59CB;&#x7684; props &#x548C; state&#x3002;&#x5982;&#x679C;&#x60F3;&#x5F97;&#x5230;&#x201C;&#x6700;&#x65B0;&#x201D;&#x7684;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; ref&#x3002;</p>
+<h3 id="react-hook&#x907F;&#x514D;&#x91CD;&#x590D;&#x6E32;&#x67D3;&#x7684;&#x4F18;&#x5316;">react hook&#x907F;&#x514D;&#x91CD;&#x590D;&#x6E32;&#x67D3;&#x7684;&#x4F18;&#x5316;</h3>
+<p>React.memo + useCallback</p>
+<p>react.memo&#x7C7B;&#x4F3C;&#x4E8E;class &#x4E2D;&#x7684;shouldComponentUpdate&#x6216;&#x8005;pureComponent</p>
+<p>&#x4F46;&#x662F;react.memo&#x662F;&#x6D45;&#x6BD4;&#x8F83;&#xFF0C;&#x6DF1;&#x6BD4;&#x8F83;&#x53EF;&#x4EE5;&#x9009;&#x62E9;Immer.js&#x6216;&#x8005;Immutable</p>
 
                                 
                                 </section>
@@ -1136,7 +1175,7 @@
                 </a>
                 
                 
-                <a href="../html/css安全.html" class="navigation navigation-next " aria-label="Next page: Css安全">
+                <a href="../typescript/基础理解1.html" class="navigation navigation-next " aria-label="Next page: 基础理解1">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1147,7 +1186,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"原型链","level":"1.8","depth":1,"next":{"title":"Css安全","level":"2.1","depth":1,"path":"html/css安全.md","ref":"html/css安全.md","articles":[]},"previous":{"title":"This","level":"1.7","depth":1,"path":"es6/this.md","ref":"es6/this.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["summary","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"summary":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"es6/原型链.md","mtime":"2021-01-04T05:24:20.177Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-18T03:27:48.778Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"源码","level":"6.6","depth":1,"next":{"title":"基础理解1","level":"7.1","depth":1,"path":"typescript/基础理解1.md","ref":"typescript/基础理解1.md","articles":[]},"previous":{"title":"This","level":"6.5","depth":1,"path":"react/this.md","ref":"react/this.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["summary","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"summary":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"react/源码.md","mtime":"2021-02-18T03:14:24.578Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-18T03:27:48.778Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
