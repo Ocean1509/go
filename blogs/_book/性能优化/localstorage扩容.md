@@ -1,0 +1,1 @@
+localstorage扩容是利用iframe，但是会变成异步加载
