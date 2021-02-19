@@ -1,7 +1,7 @@
 script标签用来在网页中执行JavaScript，它可以直接包含JavaScript代码，也可以直接通过src指向一个同域或者不同域的外链。
 
 ### 1. script标签默认会阻塞页面解析，并按照它们出现的顺序执行
-```
+```js
 <script src="a.js"></script>
 <script>
   console.log('b')
@@ -25,7 +25,7 @@ script标签用来在网页中执行JavaScript，它可以直接包含JavaScript
 ### 3. type为module的script标签
 相比传统script，<script type="module"></script>将被当作一个JavaScript模块对待，被称为module script，且不受charset和defer属性影响。
 
-```
+```js
 // app.js
 import { assign } from "./utils.js"
 
@@ -81,7 +81,7 @@ crossorigin的作用是告诉服务端，这是个允许跨域的操作，如果
 
 ### 6. 动态导入script(Dynamically importing scripts)
 
-```
+```js
 function loadError (error) {
   throw new URIError(`The script ${error.target.src}  is not accessible.`)
 }

@@ -1,5 +1,5 @@
-1. for-of 无法遍历weakSet, weakMap(弱引用)
-```
+### 1. for-of 无法遍历weakSet, weakMap(弱引用)
+```js
 var a = new WeakSet([[1,2], [3,4]])
 for(let i of a) {
   console.log(i) // a is not a iterable
@@ -7,8 +7,9 @@ for(let i of a) {
 ```
 
 
-2. es6存在块级作用域，如果在块级作用域内声明函数，函数声明会类似于var，会提升到全局作用域或者函数作用域的头部，实体依旧留在块级作用域内
-```
+### 2. es6存在块级作用域，如果在块级作用域内声明函数，函数声明会类似于var，会提升到全局作用域或者函数作用域的头部，实体依旧留在块级作用域内
+
+```js
 // es6
 function f() { console.log('I am outside!'); }
 
@@ -22,7 +23,8 @@ function f() { console.log('I am outside!'); }
 }());
 ```
 过程类似于
-```
+
+```js
 function f() { console.log('I am outside!'); }
 
 (function() {
@@ -36,7 +38,7 @@ function f() { console.log('I am outside!'); }
 ```
 
 
-```
+```js
 // es5:  function test() {}
 // es6:  undefined
 console.log(test)
@@ -53,7 +55,7 @@ console.log(test) // function test() {}
 
 
 函数虽然不会跟let，const一样，外部无法拿到块级作用域的声明，但是受到块级作用域的影响，函数依然会被保护，内部修改了函数名，不会影响到外部
-```
+```js
 {
   function test() {
     test = 1;

@@ -1,7 +1,6 @@
 {
   "plugins": [
     "toggle-chapters",
-    "summary",
     "theme-comscore",
     "book-summary-scroll-position-saver",
     "prism",

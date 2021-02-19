@@ -4,7 +4,7 @@
 
 一般用1*1像素的图片，大约为3kb
 
-```
+```js
     var s = Date.now();
     var image = new Image();
     image.crossOrigin = 'anonymous'

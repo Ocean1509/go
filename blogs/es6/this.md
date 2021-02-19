@@ -1,9 +1,9 @@
 ### 箭头函数和普通函数this的区别
-1. 箭头函数没有this，它的this指向定义时对象，而不是使用时的对象。最外层的有效this
+##### 1. 箭头函数没有this，它的this指向定义时对象，而不是使用时的对象。最外层的有效this
 
-2. settimeout中this的区别
+##### 2. settimeout中this的区别
 
-```
+```js
 function Timer() {
   this.s1 = 0;
   this.s2 = 0;
@@ -23,9 +23,9 @@ setTimeout(() => console.log('s2: ', timer.s2), 3100);
 // s2: 0
 ```
 
-3. 事件绑定中this的区别
+##### 3. 事件绑定中this的区别
 
-```
+```js
 // 箭头函数的this指向window对象
 document.addEventListener('click', (event) => {
     console.log(this)
@@ -38,8 +38,8 @@ document.addEventListener('click', function() {
 ```
 
 
-4. 对象属性不适用箭头函数,此时this不指向obj，而是指向window对象， 因为对象不构成单独的作用域。
-```
+##### 4. 对象属性不适用箭头函数,此时this不指向obj，而是指向window对象， 因为对象不构成单独的作用域。
+```js
 var obj = {
     test: () => {
         console.log(this)
@@ -48,7 +48,7 @@ var obj = {
 ```
 
 
-```
+```js
 var handler = {
   id: '123456',
 

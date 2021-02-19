@@ -2,7 +2,7 @@
 #### 概念理解
 Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。可以理解为代理
 
-```
+```js
 var obj = {
   a: 12
 }
@@ -33,7 +33,7 @@ console.log(obj)
 ```
 proxyobj是我们操作的proxy代理对象，对代理对象的操作会反应到真实的obj上。这是和Object.defineProperty本质上的区别。后者是直接操作目标对象。
 
-```
+```js
 Object.defineProperty(obj, {
   get() {},
   set() {}
@@ -45,7 +45,7 @@ Object.defineProperty(obj, {
 [es6-proxy](https://es6.ruanyifeng.com/#docs/proxy)
 
 #### 深层递归为每个属性做代理
-```
+```js
 var handler = {
   get(target, key, receiver) {
     console.log("get")
@@ -69,7 +69,7 @@ console.log(proxyObj.b.c)
 ```
 此时无法为深层对象设置代理，这时候可以可以使用递归代理
 
-```
+```js
 var handler = {
   get(target, key, receiver) {
     console.log("get")
@@ -93,7 +93,7 @@ Reflect简单的理解是，将Object对象的一些明显属于语言内部的�
 
 当我们用proxy做代理，定义get方法时，如果返回原对象的属性值，会不断的触发get方法，导致死循环。所以可以借助Relect对象的方法去获取默认的行为，而不经过定义的get方法。
 
-```
+```js
 // 陷入死循环
 var handler = {
   get(target, value, receiver) {

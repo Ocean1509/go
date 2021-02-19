@@ -4,7 +4,7 @@ systemjs是一个模块加载器，目前主流浏览器，如最新的chrome已
 script标签的type=module属性可以让浏览器在支持es module条件下下载执行标签下的脚本，type=nomodule属性让不支持es module的浏览器走另外的分支。
 
 
-```
+```js
 // 不支持esmodule
 <script type="nomodule">
 
@@ -21,7 +21,7 @@ script标签的type=module属性可以让浏览器在支持es module条件下下
 对脚本进行babel编译
 ```@babel/core,  @babel/cli, @babel/plugin-transform-modules-systemjs```
 
-```
+```js
 // .babelrc
 {
   "plugins": ["@babel/plugin-transform-modules-systemjs"]
@@ -29,14 +29,14 @@ script标签的type=module属性可以让浏览器在支持es module条件下下
 ```
 
 es6版本
-```
+```js
 // index.js
 export const a = 12
 
 ```
 
 // babel编译后的版本
-```
+```js
 // index.bundle.js
 System.register([], function (_export, _context) {
   "use strict";
@@ -54,7 +54,7 @@ System.register([], function (_export, _context) {
 
 
 使用：
-```
+```js
 // ie11版本不支持promise,bluebird是精简版的promise polyfill
 <script src="https://cdn.bootcdn.net/ajax/libs/bluebird/3.7.2/bluebird.core.min.js" nomodule></script>
 // 引入systemjs
@@ -80,7 +80,7 @@ System.register([], function (_export, _context) {
 
 
 
-```
+```js
 // example import at top of file
 import myModule from 'my-module'
 myModule.doSomething()

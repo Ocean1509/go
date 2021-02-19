@@ -3,7 +3,7 @@ encodeURI()和encodeURIComponent()方法可以对URI进行编码，以便发送�
 
 encodeURI()不会对本身属于URI的特殊字符进行编码，例如冒号、正斜杠、问号和井字号；而encodeURIComponent()则会对它发现的任何非标准字符进行编码
 
-```
+```js
 var url = 'http://www.baidu.com?d=ab c'
 
 encodeURI(url) // "http://www.baidu.com?d=ab%20c"

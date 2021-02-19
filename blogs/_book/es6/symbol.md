@@ -5,7 +5,7 @@
 4. Symbol不能与其他类型进行运算，也就是不会进行隐式转换。但是可以显示的转换，例如：toString()，Number()
 
 ### symbol作为对象属性时，不能使用.修饰符
-```
+```js
 const s = Symbol();
 
 const a = {}
@@ -22,7 +22,7 @@ for in , for of 无法遍历对象Symbol类型，同时也不会被Object.keys()
 
 要想得到Symbol类型的属性，可以使用Object.getOwnPropertySymbols()
 
-```
+```js
 var obj = {
     [Symbol('foo')]: 1,
     a: 2
@@ -39,7 +39,7 @@ Object.getOwnPropertySymbols(obj)
 
 要想获取所有的属性可以使用Reflect.ownKeys()来获取
 
-```
+```js
 var obj = {
     [Symbol('foo')]: 1,
     a: 2
@@ -49,7 +49,7 @@ Reflect.ownKeys(obj)
 // ["a", Symbol(foo)]
 ```
 ### Symbol.for
-```
+```js
 Symbol.for("bar") === Symbol.for("bar")
 // true
 
@@ -60,7 +60,7 @@ Symbol("bar") === Symbol("bar")
 Symbol.for()与Symbol()这两种写法，都会生成新的 Symbol。它们的区别是，前者会被登记在全局环境中供搜索，后者不会。Symbol.for()不会每次调用就返回一个新的 Symbol 类型的值，而是会先检查给定的key是否已经存在，如果不存在才会新建一个值。
 
 ### 不能通过instanceof找到原型(基础类型都不能用instanceof找到原型)
-```
+```js
 var a = Symbol('a')
 console.log(a instanceOf Symbol) //  false
 ```
@@ -69,7 +69,7 @@ Symbol.__proto === Function.prototype // true
 ```
 
 ### Symbol参数为对象时，会调用对象的toString方法，再产生symbol值
-```
+```js
 var obj = {
     a: 12
 }
@@ -94,13 +94,13 @@ var b = Symbol(obj)
 对象的Symbol.toPrimitive属性，指向一个方法。该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值
 例子：
 实现以下操作:
-```
+```js
 if(a == 1 && a == 2 && a == 3) {
     console.log(true) // true
 }
 ```
 解析：
-```
+```js
 var a = {
     [Symbol.toPrimitive]:((i) => () => ++i)(0)
     
@@ -114,7 +114,7 @@ if (a == 1 && a == 2 && a == 3) {
 
 对象的Symbol.hasInstance属性，指向一个内部方法。当其他对象使用instanceof运算符，判断是否为该对象的实例时，会调用这个方法。比如，foo instanceof Foo在语言内部，实际调用的是Foo[Symbol.hasInstance](foo)。
 
-```
+```js
 class MyClass {
   [Symbol.hasInstance](foo) {
     return foo instanceof Array;
@@ -143,7 +143,7 @@ class MyClass {
 - Generator 对象
 - 字符串
 
-```
+```js
 var a = [1, 2, 3]
 console.log(Object.getOwnPropertySymbols(a.__proto__)) // 获取部署在Array原型上的Symbol属性
 // [Symbol(Symbol.iterator), Symbol(Symbol.unscopables)] // 拥有两个Symbol类型的属性
@@ -162,7 +162,7 @@ console.log(iterator.next()) // { value: undefined, done: true }
 
 首先模拟返回一个遍历器
 
-```
+```js
 var obj = {
       a: 1,
       b: 2
@@ -188,7 +188,7 @@ console.log(aIterator.next()) // { value: undefined, done: true }
 
 为了让数据结构部署迭代器，需要部署数据结构的Symbol.iterator属性，也就是说如果想用for-of去遍历数据结构，需要有Symbol.iterator，他在执行for-of时会自动去执行Symbol.iterator返回一个遍历器。
 
-```
+```js
 var obj = {
   a: 1,
   b: 2
@@ -223,7 +223,7 @@ for(let i of obj) {
 
 ##### 如何模拟for-of方法
 
-```
+```js
 function forOf(obj, cb) {
   let iterable, result;
 
@@ -243,7 +243,7 @@ function forOf(obj, cb) {
 
 
 
-```
+```js
 var a = {
   d: 1,
   b: 2,
@@ -276,7 +276,7 @@ for(let i of a) {
 
 for...of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。这一点跟for...in循环也不一样
 
-```
+```js
 let arr = [3, 5, 7];
 arr.foo = 'hello';
 
@@ -291,7 +291,7 @@ for (let i of arr) {
 
 ##### 除了增加Symbol.iterator属性，还有什么方式可以让对象可以迭代
 
-```
+```js
 var obj = {
   a: 1,
   b: 2
@@ -314,15 +314,16 @@ for(let [key, value] of entries(obj)) {
 ### js几种遍历的比较
 
 js目前遍历方法有 
-1. for循环，可针对，数组，或者对象，最原始的方法
-```
+#### 1. for循环，可针对，数组，或者对象，最原始的方法
+
+```js
 for(var i = 0; i<len; i++) {
 
 }
 ```
 
-2. forEach,只能遍历数组，不能遍历对象
-```
+#### 2. forEach,只能遍历数组，不能遍历对象
+```js
 var a = [1,2]
 a.forEach((value, key) => {
   console.log(value)
@@ -330,8 +331,8 @@ a.forEach((value, key) => {
 ```
 缺点： 无法用break，continue，return跳出循环
 
-3. for in，可以遍历数组和对象
-```
+#### 3. for in，可以遍历数组和对象
+```js
 var a = [1,2]
 for(let i in a) {
 
@@ -341,6 +342,6 @@ for(let i in a) {
   数组的键名是数字，但是for...in循环是以字符串作为键名“0”、“1”、“2”等等。
   for in 会遍历原型链上的值
 
-4. for of 用来遍历部署了iterator接口的数组
+#### 4. for of 用来遍历部署了iterator接口的数组
 
 缺点： 无法针对对象

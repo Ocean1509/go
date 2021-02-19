@@ -5,7 +5,7 @@
 
 ### node.js vm
 node原生模块中的vm可以实现沙箱隔离，看官网的例子
-```
+```js
 const vm = require('vm');
 
 const x = 1;
@@ -30,7 +30,7 @@ iframe是天然的沙箱环境
 ### qiankun 沙箱的处理方式
 #### 方式一： 快照
 思想是记录沙箱环境中变化的全局js变量，在退出沙箱时还原，需要有三个map来记录，一个是记录新增的全局变量，一个是记录更新的全局变量，保留改变前的值，方便更新，最后一个记录沙箱期间不停改变的全局变量
-```
+```js
 class LegacySandbox {
     // 沙箱内新增的全局变量
     addedPropsMapInSandbox = new Map();
@@ -136,7 +136,7 @@ eval(function (sandbox, window) {
 #### 方式二：沙箱状态池
 对window对象的操作不再直接操作到window上，而是作用于沙箱池，取值时优先从沙箱状态池中获取，没有再从window对象上拿
 
-```
+```js
 class ProxySandbox {
     // 沙箱状态池
     updatedValueSet = new Map();
@@ -162,7 +162,7 @@ class ProxySandbox {
  思路： 沙箱被激活时，记录当前window下的可遍历属性，把上次沙箱卸载变化的属性赋值到当前的window对象上。
        卸载时，当前window对象和激活时记录的window对象进行对比。将当前window对象恢复到记录的window对象中，同时记录差异变化的属性，供下次激活使用
 
-```
+```js
 class SnapshotSandbox {
     windowSnapshot = {};
     modifyPropsMap = {};
