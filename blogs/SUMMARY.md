@@ -53,8 +53,7 @@
   * [源码](react/源码.md)
 
 * [Typescript](typescript/README.md)
-  * [基础理解1](typescript/基础理解1.md)
-  * [枚举](typescript/枚举.md)
+  * [基础理解](typescript/基础理解.md)
 
 * [Vue](vue/README.md)
   * [Vue](vue/vue.md)
@@ -100,6 +99,7 @@
   * [前端自动化构建](架构/前端自动化构建.md)
   * [密码学入门](架构/密码学入门.md)
   * [微前端](架构/微前端.md)
+  * [SSR](架构/SSR.md)
 
 * [测试](测试/README.md)
   * [测试](测试/测试.md)
