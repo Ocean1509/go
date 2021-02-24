@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>枚举 · GitBook</title>
+        <title>SSR · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -73,10 +73,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../vue/" />
+    <link rel="next" href="../测试/" />
     
     
-    <link rel="prev" href="基础理解1.html" />
+    <link rel="prev" href="微前端.html" />
     
 
     </head>
@@ -759,9 +759,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="./">
+        <li class="chapter " data-level="1.7" data-path="../typescript/">
             
-                <a href="./">
+                <a href="../typescript/">
             
                     
                     Typescript
@@ -773,25 +773,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="基础理解1.html">
+        <li class="chapter " data-level="1.7.1" data-path="../typescript/基础理解.html">
             
-                <a href="基础理解1.html">
-            
-                    
-                    基础理解1
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.7.2" data-path="枚举.html">
-            
-                <a href="枚举.html">
+                <a href="../typescript/基础理解.html">
             
                     
-                    枚举
+                    基础理解
             
                 </a>
             
@@ -1270,9 +1257,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="../架构/">
+        <li class="chapter " data-level="1.12" data-path="./">
             
-                <a href="../架构/">
+                <a href="./">
             
                     
                     架构
@@ -1284,9 +1271,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.12.1" data-path="../架构/v8.html">
+        <li class="chapter " data-level="1.12.1" data-path="v8.html">
             
-                <a href="../架构/v8.html">
+                <a href="v8.html">
             
                     
                     V8
@@ -1297,9 +1284,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.2" data-path="../架构/webcomponent.html">
+        <li class="chapter " data-level="1.12.2" data-path="webcomponent.html">
             
-                <a href="../架构/webcomponent.html">
+                <a href="webcomponent.html">
             
                     
                     Webcomponent
@@ -1310,9 +1297,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.3" data-path="../架构/前端自动化构建.html">
+        <li class="chapter " data-level="1.12.3" data-path="前端自动化构建.html">
             
-                <a href="../架构/前端自动化构建.html">
+                <a href="前端自动化构建.html">
             
                     
                     前端自动化构建
@@ -1323,9 +1310,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.4" data-path="../架构/密码学入门.html">
+        <li class="chapter " data-level="1.12.4" data-path="密码学入门.html">
             
-                <a href="../架构/密码学入门.html">
+                <a href="密码学入门.html">
             
                     
                     密码学入门
@@ -1336,12 +1323,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.5" data-path="../架构/微前端.html">
+        <li class="chapter " data-level="1.12.5" data-path="微前端.html">
             
-                <a href="../架构/微前端.html">
+                <a href="微前端.html">
             
                     
                     微前端
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.6" data-path="SSR.html">
+            
+                <a href="SSR.html">
+            
+                    
+                    SSR
             
                 </a>
             
@@ -1526,7 +1526,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >枚举</a>
+        <a href=".." >SSR</a>
     </h1>
 </div>
 
@@ -1541,36 +1541,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h4 id="&#x679A;&#x4E3E;&#x7684;&#x672C;&#x8D28;">&#x679A;&#x4E3E;&#x7684;&#x672C;&#x8D28;</h4>
-<pre class="language-"><code>enum Direction {
-    UP,
-    LEFT,
-    DONW,
-    RIGHT
-}
-</code></pre><p>&#x5B9E;&#x9645;&#x4E0A;&#x7F16;&#x8BD1;&#x7684;&#x7ED3;&#x679C;</p>
-<pre class="language-"><code>var Direction
-(function(Direction) {
-    Direction[Direction[&quot;UP&quot;] = 0] = &quot;UP&quot;;
-    Direction[Direction[&quot;LEFT&quot;] = 1] = &quot;LEFT&quot;;
-    Direction[Direction[&quot;DONW&quot;] = 2] = &quot;DONW&quot;;
-    Direction[Direction[&quot;RIGHT&quot;] = 3] = &quot;RIGHT&quot;;
-}(Direction || Direction = {}))
-</code></pre><h4 id="&#x5E38;&#x91CF;&#x679A;&#x4E3E;&#x7684;&#x4E0D;&#x540C;">&#x5E38;&#x91CF;&#x679A;&#x4E3E;&#x7684;&#x4E0D;&#x540C;</h4>
-<p>&#x5E38;&#x91CF;&#x679A;&#x4E3E;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x751F;&#x6210;&#x591A;&#x4F59;&#x7684;&#x4EE3;&#x7801;&#x548C;&#x989D;&#x5916;&#x7684;&#x975E;&#x76F4;&#x63A5;&#x7684;&#x5BF9;&#x679A;&#x4E3E;&#x6210;&#x5458;&#x7684;&#x8BBF;&#x95EE;</p>
-<pre class="language-"><code>const enum Direction {
-    UP,
-    LEFT,
-    DONW,
-    RIGHT
-}
+                                <h3 id="ssr&#x7684;&#x7406;&#x89E3;&#x548C;&#x5B9E;&#x73B0;">SSR&#x7684;&#x7406;&#x89E3;&#x548C;&#x5B9E;&#x73B0;</h3>
+<p>SSR&#x7ED3;&#x5408;&#x4E86;SPA&#x548C;MPA&#x67B6;&#x6784;&#xFF0C;&#x9996;&#x9875;&#x548C;&#x9875;&#x9762;&#x5237;&#x65B0;&#x65F6;&#x91C7;&#x7528;&#x670D;&#x52A1;&#x7AEF;&#x76F4;&#x51FA;&#xFF0C;&#x800C;&#x9875;&#x9762;&#x5185;&#x90E8;&#x8DF3;&#x8F6C;&#x91C7;&#x7528;js&#x63A7;&#x5236;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x771F;&#x5047;&#x8DEF;&#x7531;&#x6DF7;&#x5408;&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x67B6;&#x6784;&#x56FE;
+<img src="../imgs/ssr.jpg" alt=""></p>
+<p>&#x7CFB;&#x7EDF;&#x67B6;&#x6784;&#x5206;&#x4E3A;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#x5C06;vue&#xFF0C;react&#x7EC4;&#x4EF6;&#x901A;&#x8FC7;renderToString&#x8F6C;&#x6362;&#x4E3A;html&#x6A21;&#x677F;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;koa&#x6216;&#x8005;express&#x76F4;&#x51FA;&#xFF0C;&#x8FD9;&#x6837;&#x9996;&#x9875;&#x6E32;&#x67D3;&#x65F6;&#x5C31;&#x662F;&#x5B8C;&#x6574;&#x7684;html js css&#x3002;</p>
+<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x5728;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x524D;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#xFF0C;spa&#x67B6;&#x6784;&#x4F1A;&#x653E;&#x5728;&#x5982; mounted&#x6216;&#x8005;componentDidMount&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x8FD9;&#x6837;&#x4F1A;&#x9020;&#x6210;&#x9996;&#x5C4F;&#x6E32;&#x67D3;&#x9700;&#x8981;&#x6838;&#x5916;&#x7684;http&#x8BF7;&#x6C42;&#xFF0C;&#x501F;&#x7528;mpa&#x7684;&#x7406;&#x5FF5;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x76F4;&#x51FA;html&#x524D;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x7684;&#x83B7;&#x53D6;&#x3002;</p>
+<p>&#x505A;&#x6CD5;:</p>
+<pre class="language-"><code>&#x53EF;&#x4EE5;&#x5728;&#x7EC4;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x8DEF;&#x7531;&#x76F4;&#x51FA;&#x524D;&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53E3;&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x6700;&#x540E;&#x5C06;&#x8BF7;&#x6C42;&#x7ED3;&#x679C;&#x653E;&#x5230;&#x6A21;&#x677F;&#x4E2D;&#x8FD4;&#x56DE;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x3002;
 
-const a = Direction.UP
+&#x4E3A;&#x4E86;&#x8BA9;&#x670D;&#x52A1;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x4E5F;&#x80FD;&#x5171;&#x7528;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x6838;&#x5FC3;&#x6B65;&#x9AA4;&#x3002;
+1. &#x501F;&#x7528;redux&#x6216;&#x8005;vuex&#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x5B58;&#x50A8;&#x6570;&#x636E;
+2. &#x5C06;&#x670D;&#x52A1;&#x7AEF;&#x8BF7;&#x6C42;&#x7684;&#x6570;&#x636E;&#x6CE8;&#x6C34;&#x5230;window&#x5BF9;&#x8C61;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x8FC7;window&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x53D6;&#x5230;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x3002;
+</code></pre><h4 id="&#x5982;&#x4F55;&#x505A;&#x5230;&#x771F;&#x5047;&#x8DEF;&#x7531;&#x6DF7;&#x7528;">&#x5982;&#x4F55;&#x505A;&#x5230;&#x771F;&#x5047;&#x8DEF;&#x7531;&#x6DF7;&#x7528;</h4>
+<p>&#x670D;&#x52A1;&#x7AEF;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#xFF0C;&#x6BCF;&#x4E2A;&#x8DEF;&#x7531;&#x90FD;&#x662F;&#x91CD;&#x65B0;&#x8FD4;&#x56DE;&#x670D;&#x52A1;&#x7AEF;&#x5B8C;&#x6574;&#x6570;&#x636E;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x7528;&#x524D;&#x7AEF;&#x8DEF;&#x7531;&#x63A7;&#x5236;&#xFF0C;</p>
 
-// &#x7F16;&#x8BD1;&#x5B8C;&#x6210;
-
-var a = &quot;0&quot; /* Up */;
-</code></pre>
                                 
                                 </section>
                             
@@ -1597,12 +1582,12 @@ var a = &quot;0&quot; /* Up */;
 
             
                 
-                <a href="基础理解1.html" class="navigation navigation-prev " aria-label="Previous page: 基础理解1">
+                <a href="微前端.html" class="navigation navigation-prev " aria-label="Previous page: 微前端">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../vue/" class="navigation navigation-next " aria-label="Next page: Vue">
+                <a href="../测试/" class="navigation navigation-next " aria-label="Next page: 测试">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1613,7 +1598,7 @@ var a = &quot;0&quot; /* Up */;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"枚举","level":"1.7.2","depth":2,"next":{"title":"Vue","level":"1.8","depth":1,"path":"vue/README.md","ref":"vue/README.md","articles":[{"title":"Vue","level":"1.8.1","depth":2,"path":"vue/vue.md","ref":"vue/vue.md","articles":[]}]},"previous":{"title":"基础理解1","level":"1.7.1","depth":2,"path":"typescript/基础理解1.md","ref":"typescript/基础理解1.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"typescript/枚举.md","mtime":"2020-12-08T07:59:03.487Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T02:42:33.499Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SSR","level":"1.12.6","depth":2,"next":{"title":"测试","level":"1.13","depth":1,"path":"测试/README.md","ref":"测试/README.md","articles":[{"title":"测试","level":"1.13.1","depth":2,"path":"测试/测试.md","ref":"测试/测试.md","articles":[]}]},"previous":{"title":"微前端","level":"1.12.5","depth":2,"path":"架构/微前端.md","ref":"架构/微前端.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"架构/SSR.md","mtime":"2021-02-24T10:15:12.881Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-24T10:20:26.636Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
