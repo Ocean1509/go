@@ -773,25 +773,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../typescript/基础理解1.html">
+        <li class="chapter " data-level="1.7.1" data-path="../typescript/基础理解.html">
             
-                <a href="../typescript/基础理解1.html">
-            
-                    
-                    基础理解1
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="../typescript/枚举.html">
-            
-                <a href="../typescript/枚举.html">
+                <a href="../typescript/基础理解.html">
             
                     
-                    枚举
+                    基础理解
             
                 </a>
             
@@ -1349,6 +1336,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12.6" data-path="../架构/SSR.html">
+            
+                <a href="../架构/SSR.html">
+            
+                    
+                    SSR
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1545,6 +1545,12 @@
 <ol>
 <li>&#x7528;&#x56FE;&#x7247;&#x505A;&#x57CB;&#x70B9;&#x6536;&#x96C6;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x53D1;&#x9001;&#x4E00;&#x4E2A;1kb&#x7684;gif&#x9644;&#x5E26;&#x4FE1;&#x606F;</li>
 <li>navigator.sendBeacon(),&#x4E0D;&#x518D;&#x6D88;&#x8017;&#x8BF7;&#x6C42;</li>
+<li><p>requestIdleCallback / microTask  &#x53D1;&#x9001;&#x65F6;&#x673A;</p>
+</li>
+<li><p>&#x7EDF;&#x8BA1;&#x65E5;&#x5FD7;&#x7684;&#x65B9;&#x6CD5;&#xFF1A; &#x524D;&#x7AEF;&#x6570;&#x636E;&#x9001;&#x5230;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x7684;&#x65E5;&#x5FD7;&#x670D;&#x52A1;&#x5668; XXX.gif?data=xxxx,&#x5B9A;&#x65F6;task </p>
+</li>
+<li><p>&#x6700;&#x5DEE;&#x4F7F;&#x7528;ajax / fetch&#xFF08;&#x4F18;&#x5148;&#x7EA7;&#x6700;&#x9AD8;&#xFF09;</p>
+</li>
 </ol>
 <h3 id="&#x91C7;&#x96C6;&#x9875;&#x9762;&#x6027;&#x80FD;&#x6570;&#x636E;">&#x91C7;&#x96C6;&#x9875;&#x9762;&#x6027;&#x80FD;&#x6570;&#x636E;</h3>
 <p>DNS&#x67E5;&#x8BE2;&#x65F6;&#x95F4;&#xFF0C;TCP&#x8FDE;&#x63A5;&#x65F6;&#x95F4;&#xFF0C;request&#x8017;&#x65F6;&#xFF0C;&#x89E3;&#x6790;dom&#x6811;&#xFF0C;&#x767D;&#x5C4F;&#x65F6;&#x95F4;&#xFF0C;domready&#x65F6;&#x95F4;&#xFF0C;onload&#x65F6;&#x95F4;&#xFF0C;FP&#x65F6;&#x95F4;&#xFF0C;FCP&#x65F6;&#x95F4;&#xFF0C;FMP&#x65F6;&#x95F4;</p>
@@ -1654,7 +1660,28 @@ window.addEventListener(&apos;unhandledrejection&apos;, (e) =&gt; {
 <pre class="language-"><code>window.iframe[0].onerror = function() {
 
 }
-</code></pre>
+</code></pre><ol>
+<li>source-map&#x8FD8;&#x539F;
+source-map&#x5305;</li>
+</ol>
+<ol>
+<li>&#x7528;&#x6237;&#x884C;&#x4E3A;&#x56DE;&#x6EAF;
+&#x8BB0;&#x5F55;&#x7528;&#x6237;&#x7684;&#x7559;&#x5B58;&#x6808;  [xpath]</li>
+</ol>
+<p>&#x7B2C;&#x4E00;&#x6BB5;&#x4EE3;&#x7801; &#x4EE3;&#x7406;&#x6389;&#x5168;&#x90E8;&#x7684;  click  mousedown...
+&#x7B2C;&#x4E8C;&#x6BB5;&#x4EE3;&#x7801; &#x7559;&#x5B58;&#x6808;30   body/[5]div/[3]li/[1]a
+&#x7B2C;&#x4E09;&#x6BB5;&#x4EE3;&#x7801; &#x76D1;&#x63A7;&#x9519;&#x8BEF; &#x6808;&#x538B;&#x7F29; -&gt; &#x670D;&#x52A1;&#x5668; -&gt; &#x6E05;&#x7A7A;
+&#x7B2C;&#x56DB;&#x6BB5;&#x4EE3;&#x7801; playwright(&#x5229;&#x7528;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;) -&gt; xpath(&#x70B9;) -&gt; &#x622A;&#x56FE; -&gt; &#x5408;&#x6210;&#x5DE5;&#x5177;</p>
+<p>&#x7CBE;&#x7EC6;&#x5316;&#xFF1A;</p>
+<ol>
+<li>&#x9875;&#x9762;&#x5168;&#x91CF;&#x5FEB;&#x7167; &#x8F6C;&#x6362;</li>
+<li>&#x8F6C;&#x6210;&#x865A;&#x62DF;dom</li>
+<li>&#x865A;&#x62DF;dom&#x8F6C;&#x6210;dom</li>
+<li>mutationObserer&#x76D1;&#x63A7;</li>
+<li>mutationObserver&#x65E0;&#x6CD5;&#x76D1;&#x63A7;&#x8868;&#x5355;&#xFF0C;&#x9700;&#x8981;&#x76D1;&#x63A7;input</li>
+<li>canvas&#x4E0D;&#x597D;&#x5904;&#x7406;&#xFF0C;&#x9700;&#x8981;&#x7C7B;&#x4F3C;hack api</li>
+</ol>
+
                                 
                                 </section>
                             
@@ -1697,7 +1724,7 @@ window.addEventListener(&apos;unhandledrejection&apos;, (e) =&gt; {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"监控","level":"1.11.9","depth":2,"next":{"title":"知乎汇总","level":"1.11.10","depth":2,"path":"性能优化/知乎汇总.md","ref":"性能优化/知乎汇总.md","articles":[]},"previous":{"title":"浏览器渲染过程","level":"1.11.8","depth":2,"path":"性能优化/浏览器渲染过程.md","ref":"性能优化/浏览器渲染过程.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"性能优化/监控.md","mtime":"2020-12-08T07:59:03.494Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-22T02:42:33.499Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"监控","level":"1.11.9","depth":2,"next":{"title":"知乎汇总","level":"1.11.10","depth":2,"path":"性能优化/知乎汇总.md","ref":"性能优化/知乎汇总.md","articles":[]},"previous":{"title":"浏览器渲染过程","level":"1.11.8","depth":2,"path":"性能优化/浏览器渲染过程.md","ref":"性能优化/浏览器渲染过程.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"性能优化/监控.md","mtime":"2021-02-24T10:15:12.880Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-24T10:20:26.636Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
