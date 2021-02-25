@@ -27,6 +27,7 @@
   * [浅克隆&深克隆](js/浅克隆&深克隆.md)
   * [浏览器](js/浏览器.md)
   * [状态管理](js/状态管理.md)
+  * [forEach](js/forEach.md)
 
 * [Node](node/README.md)
   * [Buffer](node/Buffer.md)
