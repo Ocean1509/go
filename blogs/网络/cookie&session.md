@@ -26,7 +26,7 @@ sameSite:是否为同站cookie（strict, lax）
 
 
 服务器cookie的下发是逐条下发的
-![](../../imgs/cookie.png)
+![](../imgs/cookie.png)
 
 ### 第三方cookie
 什么叫第三方cookie，当打开一个网站时，除了本域名下携带cookie外，还有一些第三方网站也会携带有cookie，这个cookie就是第三方cookie。
