@@ -58,6 +58,7 @@
 
 * [Vue](vue/README.md)
   * [Vue](vue/vue.md)
+  * [Vite](vue/vite.md)
 
 * [Webpack](webpack/README.md)
   * [CMD Vs AMD](webpack/CMD vs AMD.md)
