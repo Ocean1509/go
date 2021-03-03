@@ -34,3 +34,6 @@ vue2编译过程是正则匹配机制，正则匹配有个缺点就是匹配越�
 ### vue2 和 vue3 的区别
 vue2是options api
 vue3是composition api
+### vue挂载补充
+
+挂载过程是先父后子，即render是先父后子(生成vnode)，而update对组件实例化的过程是先子后父。
