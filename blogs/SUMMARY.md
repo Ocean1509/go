@@ -59,6 +59,7 @@
 * [Vue](vue/README.md)
   * [Vue](vue/vue.md)
   * [Vite](vue/vite.md)
+  * [Vue-Router](vue/vue-router.md)
 
 * [Webpack](webpack/README.md)
   * [CMD Vs AMD](webpack/CMD vs AMD.md)
