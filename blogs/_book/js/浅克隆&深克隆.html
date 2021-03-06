@@ -844,6 +844,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.8.3" data-path="../vue/vue-router.html">
+            
+                <a href="../vue/vue-router.html">
+            
+                    
+                    Vue-Router
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1597,291 +1610,305 @@
 <h3 id="&#x6DF1;&#x62F7;&#x8D1D;">&#x6DF1;&#x62F7;&#x8D1D;</h3>
 <p>&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x6838;&#x5FC3;&#x662F;&#x5BF9;&#x6570;&#x7EC4;&#x6216;&#x8005;&#x5BF9;&#x8C61;&#x9010;&#x7EA7;&#x6DF1;&#x5C42;&#x6B21;&#x62F7;&#x8D1D;</p>
 <h4 id="&#x7B80;&#x6613;&#x65B9;&#x6CD5;">&#x7B80;&#x6613;&#x65B9;&#x6CD5;</h4>
-<pre class="language-"><code>var obj = {
-  a: 1,
-  b: {
-    c: 2
-  }
-}
-JSON.parse(JSON.stringify(obj))
-</code></pre><p>&#x7F3A;&#x70B9;&#xFF1A;
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  a<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  b<span class="token operator">:</span> <span class="token punctuation">{</span>
+    c<span class="token operator">:</span> <span class="token number">2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x7F3A;&#x70B9;&#xFF1A;
 Symbol,function,undefined&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x8BE6;&#x89C1;&#x624B;&#x5199;&#x4F53;&#x7684;json.js
 &#x65E0;&#x6CD5;&#x89E3;&#x51B3;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x95EE;&#x9898;</p>
 <h4 id="&#x4FEE;&#x6539;&#x6D45;&#x62F7;&#x8D1D;&#x8FDB;&#x884C;&#x6DF1;&#x5C42;&#x62F7;&#x8D1D;&#x9488;&#x5BF9;&#x5BF9;&#x8C61;&#x6570;&#x7EC4;">&#x4FEE;&#x6539;&#x6D45;&#x62F7;&#x8D1D;&#x8FDB;&#x884C;&#x6DF1;&#x5C42;&#x62F7;&#x8D1D;(&#x9488;&#x5BF9;&#x5BF9;&#x8C61;&#x6570;&#x7EC4;)</h4>
-<pre class="language-"><code>// &#x8003;&#x8651;&#x6570;&#x7EC4;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x7B80;&#x5355;&#x6DF1;&#x62F7;&#x8D1D;
-const isArray = (o) =&gt; Object.prototype.toString.call(o) === &apos;[object Array]&apos;
-const isObject = (o) =&gt; Object.prototype.toString.call(o) === &apos;[object Object]&apos;
+<pre class="language-"><code class="lang-js"><span class="token comment">// &#x8003;&#x8651;&#x6570;&#x7EC4;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x7B80;&#x5355;&#x6DF1;&#x62F7;&#x8D1D;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isArray</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">o</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&apos;[object Array]&apos;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">isObject</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">o</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">&apos;[object Object]&apos;</span>
 
-function deepClone(origin) {
-    if (!isArray(origin) &amp;&amp; !isObject(origin)) return origin
-    const result = isArray(origin) ? [] : {}
-    for (let i in origin) {
-        if(origin.hasOwnProperty(i)) {
-            result[i] = deepClone(origin[i])
-        }
-    }
-    return result
-}
-</code></pre><p>&#x95EE;&#x9898;&#xFF1A;&#x9700;&#x8981;&#x5BF9;&#x8C61;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;</p>
-<pre class="language-"><code>var a = {}
-a.b = a
-</code></pre><h4 id="&#x8003;&#x8651;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x95EE;&#x9898;">&#x8003;&#x8651;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x95EE;&#x9898;</h4>
+<span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span><span class="token parameter">origin</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isObject</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> origin
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> origin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>origin<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>origin<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x95EE;&#x9898;&#xFF1A;&#x9700;&#x8981;&#x5BF9;&#x8C61;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x65E0;&#x6CD5;&#x89E3;&#x51B3;</p>
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+a<span class="token punctuation">.</span>b <span class="token operator">=</span> a
+</code></pre>
+<h4 id="&#x8003;&#x8651;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x95EE;&#x9898;">&#x8003;&#x8651;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x95EE;&#x9898;</h4>
 <p>&#x5229;&#x7528;map&#x5B58;&#x50A8;&#x5F15;&#x7528;&#x548C;&#x5BF9;&#x8C61;&#x7684;&#x5173;&#x7CFB;</p>
-<pre class="language-"><code>function deepClone(origin, map = new Map()) {
-    if (!isArray(origin) &amp;&amp; !isObject(origin)) return origin
-    const result = isArray(origin) ? [] : {}
-    if (map.get(origin)) {
-        return map.get(origin)
-    }
-    map.set(origin, result)
-    for (let i in origin) {
-        if (origin.hasOwnProperty(i)) {
-            result[i] = deepClone(origin[i], map)
-        }
-    }
-    return result
-}
-</code></pre><h4 id="&#x5F31;&#x5F15;&#x7528;">&#x5F31;&#x5F15;&#x7528;</h4>
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>origin<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isObject</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> origin
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>origin<span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> origin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>origin<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>origin<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> map<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x5F31;&#x5F15;&#x7528;">&#x5F31;&#x5F15;&#x7528;</h4>
 <p>weakmap&#x548C;map&#x76F8;&#x6BD4;&#xFF0C;&#x662F;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x4F55;&#x4E3A;&#x5F31;&#x5F15;&#x7528;&#x548C;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;</p>
-<pre class="language-"><code>var obj = { a: 1 }
-var map = new Map()
-map.set(o, &quot;test&quot;)
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span>
+<span class="token keyword">var</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token string">&quot;test&quot;</span><span class="token punctuation">)</span>
 
-obj = null;
-</code></pre><p>&#x867D;&#x7136;obj&#x7684;&#x5730;&#x5740;&#x88AB;&#x91CD;&#x5199;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;map&#x662F;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x5E76;&#x4E0D;&#x4F1A;&#x628A;&#x5BF9;&#x8C61;&#x56DE;&#x6536;&#x3002;
+obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x867D;&#x7136;obj&#x7684;&#x5730;&#x5740;&#x88AB;&#x91CD;&#x5199;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;map&#x662F;&#x5F3A;&#x5F15;&#x7528;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x5E76;&#x4E0D;&#x4F1A;&#x628A;&#x5BF9;&#x8C61;&#x56DE;&#x6536;&#x3002;
 &#x800C;weakmap&#x4E0D;&#x540C;&#xFF0C;&#x4ED6;&#x662F;&#x4E00;&#x4E2A;&#x5F31;&#x5F15;&#x7528;&#xFF0C;&#x5BF9;&#x8C61;&#x5E76;&#x4E0D;&#x4F1A;&#x5728;&#x521B;&#x5EFA;weakmap&#x662F;&#x88AB;&#x6807;&#x8BB0;&#xFF0C;&#x6240;&#x4EE5;&#x540E;&#x7EED;&#x53EA;&#x8981;obj&#x5730;&#x5740;&#x88AB;&#x91CD;&#x5199;&#xFF0C;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x5E76;&#x4F1A;&#x6E05;&#x9664;&#x8FD9;&#x4E2A;&#x6CA1;&#x6709;&#x88AB;&#x6807;&#x8BB0;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
-<pre class="language-"><code>var obj = { a: 1 }
-var map = new weakMap()
-map.set(o, &quot;test&quot;)
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span>
+<span class="token keyword">var</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">weakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> <span class="token string">&quot;test&quot;</span><span class="token punctuation">)</span>
 
-obj = null;
-</code></pre><p>&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;weakmap&#xFF0C;weakset&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1A;</p>
+obj <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x603B;&#x7ED3;&#x4E00;&#x4E0B;weakmap&#xFF0C;weakset&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#xFF1A;</p>
 <h5 id="&#x6CE8;&#x518C;&#x76D1;&#x542C;&#x4E8B;&#x4EF6;">&#x6CE8;&#x518C;&#x76D1;&#x542C;&#x4E8B;&#x4EF6;</h5>
-<pre class="language-"><code>const listener = new WeakMap()
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> listener <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 listener
-  .set(ele1, func1)
-  .set(ele2, func2)
+  <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>ele1<span class="token punctuation">,</span> func1<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>ele2<span class="token punctuation">,</span> func2<span class="token punctuation">)</span>
 
-ele1.addEventListener(&apos;click&apos;, listener.get(ele1), false)
-ele2.addEventListener(&apos;click&apos;, listener.get(ele2), false)
-</code></pre><p>&#x76D1;&#x542C;&#x51FD;&#x6570;&#x653E;&#x5728;WeakMap&#x4E2D;&#xFF0C;&#x4E00;&#x65E6;DOM&#x79FB;&#x9664;&#xFF0C;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x4E5F;&#x968F;&#x4E4B;&#x4ECE;&#x5185;&#x5B58;&#x79FB;&#x9664;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p>
+ele1<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> listener<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>ele1<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+ele2<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;click&apos;</span><span class="token punctuation">,</span> listener<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>ele2<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x76D1;&#x542C;&#x51FD;&#x6570;&#x653E;&#x5728;WeakMap&#x4E2D;&#xFF0C;&#x4E00;&#x65E6;DOM&#x79FB;&#x9664;&#xFF0C;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x4E5F;&#x968F;&#x4E4B;&#x4ECE;&#x5185;&#x5B58;&#x79FB;&#x9664;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p>
 <h5 id="&#x8BB0;&#x5F55;&#x7528;&#x6237;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570;">&#x8BB0;&#x5F55;&#x7528;&#x6237;&#x7684;&#x8BBF;&#x95EE;&#x6B21;&#x6570;</h5>
-<pre class="language-"><code>let jack = { name: &quot;jack&quot; };
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> jack <span class="token operator">=</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&quot;jack&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-const vistedCount = new WeakMap();
-vistedCount.set(jack, 123);
+<span class="token keyword">const</span> vistedCount <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+vistedCount<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>jack<span class="token punctuation">,</span> <span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-// &#x5F53; jack &#x79BB;&#x5F00;&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x4FDD;&#x5B58;&#x5176;&#x8BBF;&#x95EE;&#x8BB0;&#x5F55;
-john = null;
+<span class="token comment">// &#x5F53; jack &#x79BB;&#x5F00;&#xFF0C;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x4FDD;&#x5B58;&#x5176;&#x8BBF;&#x95EE;&#x8BB0;&#x5F55;</span>
+john <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 
-// &#x9664;&#x4E86; vistedCount &#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x5F15;&#x7528;&#x4E86;
-// &#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4F1A;&#x81EA;&#x52A8;&#x7684;&#x4ECE;&#x5185;&#x5B58;&#x548C; vistedCount &#x4E2D;&#x5220;&#x9664;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;
-</code></pre><h4 id="&#x5F31;&#x5F15;&#x7528;&#x4F18;&#x5316;">&#x5F31;&#x5F15;&#x7528;&#x4F18;&#x5316;</h4>
-<pre class="language-"><code>function deepClone(origin, map = new WeakMap()) {
-    if (!isArray(origin) &amp;&amp; !isObject(origin)) return origin
-    const result = isArray(origin) ? [] : {}
-    if (map.get(origin)) {
-        return map.get(origin)
-    }
-    map.set(origin, result)
-    for (let i in origin) {
-        if (origin.hasOwnProperty(i)) {
-            result[i] = deepClone(origin[i], map)
-        }
-    }
-    return result
-}
-</code></pre><h4 id="&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x5904;&#x7406;">&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x5904;&#x7406;</h4>
+<span class="token comment">// &#x9664;&#x4E86; vistedCount &#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x5F15;&#x7528;&#x4E86;</span>
+<span class="token comment">// &#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4F1A;&#x81EA;&#x52A8;&#x7684;&#x4ECE;&#x5185;&#x5B58;&#x548C; vistedCount &#x4E2D;&#x5220;&#x9664;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</span>
+</code></pre>
+<h4 id="&#x5F31;&#x5F15;&#x7528;&#x4F18;&#x5316;">&#x5F31;&#x5F15;&#x7528;&#x4F18;&#x5316;</h4>
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>origin<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isObject</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> origin
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>origin<span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> origin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>origin<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone</span><span class="token punctuation">(</span>origin<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> map<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x5904;&#x7406;">&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x5904;&#x7406;</h4>
 <p>&#x6DF1;&#x62F7;&#x8D1D;&#x65F6;&#x9700;&#x8981;&#x5BF9;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5178;&#x578B;&#x7684;&#x50CF;&#x6B63;&#x5219;&#xFF0C;map&#xFF0C;set&#x7B49;</p>
 <h5 id="&#x6B63;&#x5219;&#x7684;&#x514B;&#x9686;">&#x6B63;&#x5219;&#x7684;&#x514B;&#x9686;</h5>
 <p>&#x7531;&#x4E8E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5728;&#x8BBE;&#x7F6E;&#x4E86;&#x5168;&#x5C40;&#x7684;&#x6807;&#x5FD7;&#x540E;&#xFF0C;test(), exec()&#x7684;&#x6267;&#x884C;&#x4F1A;&#x6539;&#x53D8;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; lastIndex&#x7684;&#x503C;&#xFF0C;&#x8FDE;&#x7EED;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x4F1A;&#x4ECE;lastIndex&#x5904;&#x5F00;&#x59CB;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#x76F4;&#x5230;&#x672B;&#x5C3E;&#x3002;&#x6240;&#x4EE5;&#x6B63;&#x5219;&#x7684;&#x514B;&#x9686;&#x4E0D;&#x80FD;&#x7B80;&#x5355;&#x7684;&#x590D;&#x5236;&#xFF0C;&#x9700;&#x8981;&#x7279;&#x6B8A;&#x5904;&#x7406;&#x3002;</p>
-<pre class="language-"><code>var reg = /foo/g
-var reg1 = reg;
-reg.test(&apos;fooaaa&apos;) // true
-reg1.test(&apos;fooaaa&apos;) // false
-</code></pre><h5 id="&#x7EDF;&#x4E00;&#x5904;&#x7406;&#x8FC7;&#x7A0B;">&#x7EDF;&#x4E00;&#x5904;&#x7406;&#x8FC7;&#x7A0B;</h5>
-<pre class="language-"><code>let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
-if(type.includes(origin.constructor)) return new origin.constructor(origin)
-</code></pre><h4 id="&#x6700;&#x7EC8;&#x7248;&#x672C;&#x9762;&#x8BD5;">&#x6700;&#x7EC8;&#x7248;&#x672C;(&#x9762;&#x8BD5;)</h4>
-<pre class="language-"><code>function deepClone1(origin, map = new WeakMap()) {
-    if (!isArray(origin) &amp;&amp; !isObject(origin)) return origin
-    // &#x9488;&#x5BF9;&#x7279;&#x6B8A;&#x5BF9;&#x8C61;&#x7684;&#x5904;&#x7406;
-    let type = [Date, RegExp, Set, Map, WeakMap, WeakSet]
-    if(type.includes(origin.constructor)) return new origin.constructor(origin)
-    const result = isArray(origin) ? [] : {}
-    if (map.get(origin)) {
-        return map.get(origin)
-    }
-    map.set(origin, result)
-    for (let i in origin) {
-        if (origin.hasOwnProperty(i)) {
-            result[i] = deepClone1(origin[i], map)
-        }
-    }
-    return result
-}
-</code></pre><h3 id="buffer&#x62F7;&#x8D1D;">buffer&#x62F7;&#x8D1D;</h3>
-<pre class="language-"><code>function cloneBuffer(buf, isDeep) {
-    // &#x6D45;&#x62F7;&#x8D1D;
-    if(!isDeep) {
-        return buf.slice()
-    }
-    // &#x6DF1;&#x62F7;&#x8D1D;
-    const length = buf.length;
-    let buffer = Buffer.allocUnsafe(length)
-    return buf.copy(buffer)
-
-}
-</code></pre><h3 id="lodash&#x5BF9;&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x5B9E;&#x73B0;">lodash&#x5BF9;&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x5B9E;&#x73B0;</h3>
-<pre class="language-"><code>const mapTag = &apos;[object Map]&apos;;
-const setTag = &apos;[object Set]&apos;;
-const arrayTag = &apos;[object Array]&apos;;
-const objectTag = &apos;[object Object]&apos;;
-const argsTag = &apos;[object Arguments]&apos;;
-
-const boolTag = &apos;[object Boolean]&apos;;
-const dateTag = &apos;[object Date]&apos;;
-const numberTag = &apos;[object Number]&apos;;
-const stringTag = &apos;[object String]&apos;;
-const symbolTag = &apos;[object Symbol]&apos;;
-const errorTag = &apos;[object Error]&apos;;
-const regexpTag = &apos;[object RegExp]&apos;;
-const funcTag = &apos;[object Function]&apos;;
-
-const deepTag = [mapTag, setTag, arrayTag, objectTag, argsTag];
-
-
-function forEach(array, iteratee) {
-    let index = -1;
-    const length = array.length;
-    while (++index &lt; length) {
-        iteratee(array[index], index);
-    }
-    return array;
-}
-
-function isObject(target) {
-    const type = typeof target;
-    return target !== null &amp;&amp; (type === &apos;object&apos; || type === &apos;function&apos;);
-}
-
-function getType(target) {
-    return Object.prototype.toString.call(target);
-}
-
-function getInit(target) {
-    const Ctor = target.constructor;
-    return new Ctor();
-}
-
-function cloneSymbol(targe) {
-    return Object(Symbol.prototype.valueOf.call(targe));
-}
-
-function cloneReg(targe) {
-    const reFlags = /\w*$/;
-    const result = new targe.constructor(targe.source, reFlags.exec(targe));
-    result.lastIndex = targe.lastIndex;
-    return result;
-}
-
-function cloneFunction(func) {
-    const bodyReg = /(?&lt;={)(.|\n)+(?=})/m;
-    const paramReg = /(?&lt;=\().+(?=\)\s+{)/;
-    const funcString = func.toString();
-    if (func.prototype) {
-        const param = paramReg.exec(funcString);
-        const body = bodyReg.exec(funcString);
-        if (body) {
-            if (param) {
-                const paramArr = param[0].split(&apos;,&apos;);
-                return new Function(...paramArr, body[0]);
-            } else {
-                return new Function(body[0]);
-            }
-        } else {
-            return null;
-        }
-    } else {
-        return eval(funcString);
-    }
-}
-
-function cloneOtherType(targe, type) {
-    const Ctor = targe.constructor;
-    switch (type) {
-        case boolTag:
-        case numberTag:
-        case stringTag:
-        case errorTag:
-        case dateTag:
-            return new Ctor(targe);
-        case regexpTag:
-            return cloneReg(targe);
-        case symbolTag:
-            return cloneSymbol(targe);
-        case funcTag:
-            return cloneFunction(targe);
-        default:
-            return null;
-    }
-}
-
-function clone(target, map = new WeakMap()) {
-
-    // &#x514B;&#x9686;&#x539F;&#x59CB;&#x7C7B;&#x578B;
-    if (!isObject(target)) {
-        return target;
-    }
-
-    // &#x521D;&#x59CB;&#x5316;
-    const type = getType(target);
-    let cloneTarget;
-    if (deepTag.includes(type)) {
-        cloneTarget = getInit(target, type);
-    } else {
-        return cloneOtherType(target, type);
-    }
-
-    // &#x9632;&#x6B62;&#x5FAA;&#x73AF;&#x5F15;&#x7528;
-    if (map.get(target)) {
-        return map.get(target);
-    }
-    map.set(target, cloneTarget);
-
-    // &#x514B;&#x9686;set
-    if (type === setTag) {
-        target.forEach(value =&gt; {
-            cloneTarget.add(clone(value, map));
-        });
-        return cloneTarget;
-    }
-
-    // &#x514B;&#x9686;map
-    if (type === mapTag) {
-        target.forEach((value, key) =&gt; {
-            cloneTarget.set(key, clone(value, map));
-        });
-        return cloneTarget;
-    }
-
-    // &#x514B;&#x9686;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;
-    const keys = type === arrayTag ? undefined : Object.keys(target);
-    forEach(keys || target, (value, key) =&gt; {
-        if (keys) {
-            key = value;
-        }
-        cloneTarget[key] = clone(target[key], map);
-    });
-
-    return cloneTarget;
-}
-
-module.exports = {
-    clone
-};
+<pre class="language-"><code class="lang-js"><span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">foo</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span>
+<span class="token keyword">var</span> reg1 <span class="token operator">=</span> reg<span class="token punctuation">;</span>
+reg<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">&apos;fooaaa&apos;</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+reg1<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token string">&apos;fooaaa&apos;</span><span class="token punctuation">)</span> <span class="token comment">// false</span>
 </code></pre>
+<h5 id="&#x7EDF;&#x4E00;&#x5904;&#x7406;&#x8FC7;&#x7A0B;">&#x7EDF;&#x4E00;&#x5904;&#x7406;&#x8FC7;&#x7A0B;</h5>
+<pre class="language-"><code class="lang-js"><span class="token keyword">let</span> type <span class="token operator">=</span> <span class="token punctuation">[</span>Date<span class="token punctuation">,</span> RegExp<span class="token punctuation">,</span> Set<span class="token punctuation">,</span> Map<span class="token punctuation">,</span> WeakMap<span class="token punctuation">,</span> WeakSet<span class="token punctuation">]</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>origin<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">origin<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="&#x6700;&#x7EC8;&#x7248;&#x672C;&#x9762;&#x8BD5;">&#x6700;&#x7EC8;&#x7248;&#x672C;(&#x9762;&#x8BD5;)</h4>
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">deepClone1</span><span class="token punctuation">(</span>origin<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token function">isObject</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> origin
+    <span class="token comment">// &#x9488;&#x5BF9;&#x7279;&#x6B8A;&#x5BF9;&#x8C61;&#x7684;&#x5904;&#x7406;</span>
+    <span class="token keyword">let</span> type <span class="token operator">=</span> <span class="token punctuation">[</span>Date<span class="token punctuation">,</span> RegExp<span class="token punctuation">,</span> Set<span class="token punctuation">,</span> Map<span class="token punctuation">,</span> WeakMap<span class="token punctuation">,</span> WeakSet<span class="token punctuation">]</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>type<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>origin<span class="token punctuation">.</span>constructor<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">origin<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">isArray</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>origin<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>origin<span class="token punctuation">,</span> result<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token keyword">in</span> origin<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>origin<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            result<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepClone1</span><span class="token punctuation">(</span>origin<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> map<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="buffer&#x62F7;&#x8D1D;">buffer&#x62F7;&#x8D1D;</h3>
+<pre class="language-"><code class="lang-js"><span class="token keyword">function</span> <span class="token function">cloneBuffer</span><span class="token punctuation">(</span><span class="token parameter">buf<span class="token punctuation">,</span> isDeep</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x6D45;&#x62F7;&#x8D1D;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>isDeep<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> buf<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// &#x6DF1;&#x62F7;&#x8D1D;</span>
+    <span class="token keyword">const</span> length <span class="token operator">=</span> buf<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> buffer <span class="token operator">=</span> Buffer<span class="token punctuation">.</span><span class="token function">allocUnsafe</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> buf<span class="token punctuation">.</span><span class="token function">copy</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="lodash&#x5BF9;&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x5B9E;&#x73B0;">lodash&#x5BF9;&#x6DF1;&#x62F7;&#x8D1D;&#x7684;&#x5B9E;&#x73B0;</h3>
+<pre class="language-"><code class="lang-js"><span class="token keyword">const</span> mapTag <span class="token operator">=</span> <span class="token string">&apos;[object Map]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> setTag <span class="token operator">=</span> <span class="token string">&apos;[object Set]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arrayTag <span class="token operator">=</span> <span class="token string">&apos;[object Array]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> objectTag <span class="token operator">=</span> <span class="token string">&apos;[object Object]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> argsTag <span class="token operator">=</span> <span class="token string">&apos;[object Arguments]&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> boolTag <span class="token operator">=</span> <span class="token string">&apos;[object Boolean]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> dateTag <span class="token operator">=</span> <span class="token string">&apos;[object Date]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> numberTag <span class="token operator">=</span> <span class="token string">&apos;[object Number]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> stringTag <span class="token operator">=</span> <span class="token string">&apos;[object String]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> symbolTag <span class="token operator">=</span> <span class="token string">&apos;[object Symbol]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> errorTag <span class="token operator">=</span> <span class="token string">&apos;[object Error]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> regexpTag <span class="token operator">=</span> <span class="token string">&apos;[object RegExp]&apos;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> funcTag <span class="token operator">=</span> <span class="token string">&apos;[object Function]&apos;</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> deepTag <span class="token operator">=</span> <span class="token punctuation">[</span>mapTag<span class="token punctuation">,</span> setTag<span class="token punctuation">,</span> arrayTag<span class="token punctuation">,</span> objectTag<span class="token punctuation">,</span> argsTag<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">function</span> <span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> iteratee</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> length <span class="token operator">=</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">++</span>index <span class="token operator">&lt;</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">iteratee</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> array<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">isObject</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token keyword">typeof</span> target<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> target <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">&apos;object&apos;</span> <span class="token operator">||</span> type <span class="token operator">===</span> <span class="token string">&apos;function&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getType</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getInit</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> Ctor <span class="token operator">=</span> target<span class="token punctuation">.</span>constructor<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Ctor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneSymbol</span><span class="token punctuation">(</span><span class="token parameter">targe</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Object</span><span class="token punctuation">(</span><span class="token class-name">Symbol</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneReg</span><span class="token punctuation">(</span><span class="token parameter">targe</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> reFlags <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\w*$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">targe<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span>targe<span class="token punctuation">.</span>source<span class="token punctuation">,</span> reFlags<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    result<span class="token punctuation">.</span>lastIndex <span class="token operator">=</span> targe<span class="token punctuation">.</span>lastIndex<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneFunction</span><span class="token punctuation">(</span><span class="token parameter">func</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> bodyReg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(?&lt;={)(.|\n)+(?=})</span><span class="token regex-delimiter">/</span><span class="token regex-flags">m</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> paramReg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(?&lt;=\().+(?=\)\s+{)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> funcString <span class="token operator">=</span> func<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>func<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> param <span class="token operator">=</span> paramReg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>funcString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> body <span class="token operator">=</span> bodyReg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>funcString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>body<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> paramArr <span class="token operator">=</span> param<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">&apos;,&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token operator">...</span>paramArr<span class="token punctuation">,</span> body<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span>body<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">eval</span><span class="token punctuation">(</span>funcString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneOtherType</span><span class="token punctuation">(</span><span class="token parameter">targe<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> Ctor <span class="token operator">=</span> targe<span class="token punctuation">.</span>constructor<span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> boolTag<span class="token operator">:</span>
+        <span class="token keyword">case</span> numberTag<span class="token operator">:</span>
+        <span class="token keyword">case</span> stringTag<span class="token operator">:</span>
+        <span class="token keyword">case</span> errorTag<span class="token operator">:</span>
+        <span class="token keyword">case</span> dateTag<span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Ctor</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> regexpTag<span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token function">cloneReg</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> symbolTag<span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token function">cloneSymbol</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> funcTag<span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token function">cloneFunction</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token operator">:</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">clone</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// &#x514B;&#x9686;&#x539F;&#x59CB;&#x7C7B;&#x578B;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isObject</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> target<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x521D;&#x59CB;&#x5316;</span>
+    <span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token function">getType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>deepTag<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cloneTarget <span class="token operator">=</span> <span class="token function">getInit</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">cloneOtherType</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x9632;&#x6B62;&#x5FAA;&#x73AF;&#x5F15;&#x7528;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> cloneTarget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// &#x514B;&#x9686;set</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> setTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">value</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">clone</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x514B;&#x9686;map</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> mapTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token function">clone</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x514B;&#x9686;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4;</span>
+    <span class="token keyword">const</span> keys <span class="token operator">=</span> type <span class="token operator">===</span> arrayTag <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">forEach</span><span class="token punctuation">(</span>keys <span class="token operator">||</span> target<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>keys<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            key <span class="token operator">=</span> value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cloneTarget<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">clone</span><span class="token punctuation">(</span>target<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    clone
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+
                                 
                                 </section>
                             
@@ -1924,7 +1951,7 @@ module.exports = {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"浅克隆&深克隆","level":"1.4.10","depth":2,"next":{"title":"浏览器","level":"1.4.11","depth":2,"path":"js/浏览器.md","ref":"js/浏览器.md","articles":[]},"previous":{"title":"正则","level":"1.4.9","depth":2,"path":"js/正则.md","ref":"js/正则.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js/浅克隆&深克隆.md","mtime":"2021-02-19T08:29:07.697Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-02T06:39:37.621Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"浅克隆&深克隆","level":"1.4.10","depth":2,"next":{"title":"浏览器","level":"1.4.11","depth":2,"path":"js/浏览器.md","ref":"js/浏览器.md","articles":[]},"previous":{"title":"正则","level":"1.4.9","depth":2,"path":"js/正则.md","ref":"js/正则.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"js/浅克隆&深克隆.md","mtime":"2021-03-05T08:22:39.657Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-06T10:44:56.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

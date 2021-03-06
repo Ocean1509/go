@@ -3,7 +3,7 @@ AMD规范的实现是requirejs，CMD规范的实现的seajs
 
 两者的区别不在于加载的时机，而在于执行处理时机。
 
-```
+```js
 // amd
 define("main", ["a.js", "b.js"], function() {
   // 
