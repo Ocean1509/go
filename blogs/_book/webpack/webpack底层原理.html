@@ -844,6 +844,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.8.3" data-path="../vue/vue-router.html">
+            
+                <a href="../vue/vue-router.html">
+            
+                    
+                    Vue-Router
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1576,177 +1589,182 @@ Contenthash:&#x6839;&#x636E;&#x6587;&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x6765;&#x5
 <p>webpack&#x4E2D;watch&#x7684;&#x539F;&#x7406;&#x662F;&#x5229;&#x7528;&#x8F6E;&#x8BE2;&#xFF0C;&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x6700;&#x540E;&#x7F16;&#x8F91;&#x65F6;&#x95F4;&#x662F;&#x5426;&#x6539;&#x53D8;&#xFF0C;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x53D1;&#x751F;&#x6539;&#x53D8;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x901A;&#x77E5;&#xFF0C;&#x800C;&#x662F;&#x7F13;&#x5B58;&#x8D77;&#x6765;&#xFF0C;&#x6C47;&#x603B;&#x5F97;&#x5230;&#x8F6E;&#x8BE2;&#x5728;&#x4E00;&#x8D77;&#x8FD4;&#x56DE;&#x3002;</p>
 <h4 id="&#x539F;&#x7406;">&#x539F;&#x7406;</h4>
 <p>webpack&#x5B9E;&#x73B0;&#x4E86;commonjs&#x89C4;&#x8303;&#xFF0C;commonjs&#x662F;node&#x7684;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x800C;commonjs&#x662F;&#x540C;&#x6B65;&#x963B;&#x585E;&#x5F0F;&#x52A0;&#x8F7D;&#xFF0C;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;commonjs&#x89C4;&#x8303;&#xFF0C;&#xFF0C;webpack&#x5C01;&#x88C5;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x6A21;&#x5757;&#x5316;&#xFF0C;&#x628A;&#x6240;&#x6709;&#x6A21;&#x5757;&#x548C;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x90FD;&#x5C55;&#x5E73;&#xFF0C;&#x5E76;&#x4EE5;key&#xFF1A;value&#x90FD;&#x5F62;&#x5F0F;&#x5C06;&#x6A21;&#x5757;&#x5C55;&#x5E73;&#x540E;&#x7684;&#x5BF9;&#x8C61;&#x4F20;&#x7ED9;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x51FD;&#x6570;&#x3002;</p>
-<pre class="language-"><code>(function(modules) { // webpackBootstrap
-  // The module cache
-  // &#x7F13;&#x5B58;&#x6A21;&#x5757;
-    var installedModules = {};
-    // The require function
-    function __webpack_require__(moduleId) {
-        // Check if module is in cache
-        // &#x68C0;&#x67E5;&#x7F13;&#x5B58;&#x6A21;&#x5757;&#xFF0C;&#x5206;&#x6790;&#x8FC7;&#x7684;&#x6A21;&#x5757;&#x505A;&#x6DF7;&#x5B58;
-        if(installedModules[moduleId]) {
-            return installedModules[moduleId].exports;
-        }
-        // Create a new module (and put it into the cache)
-        // &#x6784;&#x5EFA;&#x65B0;&#x7684;&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;
-        // installedModules {
-        //  [moduleId]: {
-        //      exports: {
-        //      },
-        //      i: moduleId,
-        //      l: false
-        //  }
-        // }
-        var module = installedModules[moduleId] = {
-            i: moduleId,
-            l: false,
-            exports: {}
-        };
-        // Execute the module function
-        // &#x51FD;&#x6570;&#x6267;&#x884C;&#xFF0C;&#x7ED1;&#x5B9A;this
-        // module&#xFF0C;module.exports, __webpack_require__&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x5F62;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;
-        modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-        // Flag the module as loaded
-        // &#x6807;&#x8BB0;&#x6A21;&#x5757;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5B8C;&#x6BD5;
-        module.l = true;
-        // Return the exports of the module
-        return module.exports;
-    }
-    // expose the modules object (__webpack_modules__)
-    __webpack_require__.m = modules;
-    // expose the module cache
-    __webpack_require__.c = installedModules;
-    // define getter function for harmony exports
-    __webpack_require__.d = function(exports, name, getter) {
-        if(!__webpack_require__.o(exports, name)) {
-            Object.defineProperty(exports, name, { enumerable: true, get: getter });
-        }
-    };
-    // define __esModule on exports
-    __webpack_require__.r = function(exports) {
-        if(typeof Symbol !== &apos;undefined&apos; &amp;&amp; Symbol.toStringTag) {
-            Object.defineProperty(exports, Symbol.toStringTag, { value: &apos;Module&apos; });
-        }
-        Object.defineProperty(exports, &apos;__esModule&apos;, { value: true });
-    };
-    // create a fake namespace object
-    // mode &amp; 1: value is a module id, require it
-    // mode &amp; 2: merge all properties of value into the ns
-    // mode &amp; 4: return value when already ns object
-    // mode &amp; 8|1: behave like require
-    __webpack_require__.t = function(value, mode) {
-        if(mode &amp; 1) value = __webpack_require__(value);
-        if(mode &amp; 8) return value;
-        if((mode &amp; 4) &amp;&amp; typeof value === &apos;object&apos; &amp;&amp; value &amp;&amp; value.__esModule) return value;
-        var ns = Object.create(null);
-        __webpack_require__.r(ns);
-        Object.defineProperty(ns, &apos;default&apos;, { enumerable: true, value: value });
-        if(mode &amp; 2 &amp;&amp; typeof value != &apos;string&apos;) for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-        return ns;
-    };
-    // getDefaultExport function for compatibility with non-harmony modules
-    __webpack_require__.n = function(module) {
-        var getter = module &amp;&amp; module.__esModule ?
-            function getDefault() { return module[&apos;default&apos;]; } :
-            function getModuleExports() { return module; };
-        __webpack_require__.d(getter, &apos;a&apos;, getter);
-        return getter;
-    };
-    // Object.prototype.hasOwnProperty.call
-    __webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-    // __webpack_public_path__
-    __webpack_require__.p = &quot;&quot;;
-    // Load entry module and return exports
-    return __webpack_require__(__webpack_require__.s = &quot;./src/index.js&quot;);
-})
-/************************************************************************/
-({
+<pre class="language-"><code class="lang-js"><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">modules</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// webpackBootstrap</span>
+  <span class="token comment">// The module cache</span>
+  <span class="token comment">// &#x7F13;&#x5B58;&#x6A21;&#x5757;</span>
+    <span class="token keyword">var</span> installedModules <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// The require function</span>
+    <span class="token keyword">function</span> <span class="token function">__webpack_require__</span><span class="token punctuation">(</span><span class="token parameter">moduleId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Check if module is in cache</span>
+        <span class="token comment">// &#x68C0;&#x67E5;&#x7F13;&#x5B58;&#x6A21;&#x5757;&#xFF0C;&#x5206;&#x6790;&#x8FC7;&#x7684;&#x6A21;&#x5757;&#x505A;&#x6DF7;&#x5B58;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>installedModules<span class="token punctuation">[</span>moduleId<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> installedModules<span class="token punctuation">[</span>moduleId<span class="token punctuation">]</span><span class="token punctuation">.</span>exports<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// Create a new module (and put it into the cache)</span>
+        <span class="token comment">// &#x6784;&#x5EFA;&#x65B0;&#x7684;&#x6A21;&#x5757;&#x5316;&#x89C4;&#x8303;</span>
+        <span class="token comment">// installedModules {</span>
+        <span class="token comment">//  [moduleId]: {</span>
+        <span class="token comment">//      exports: {</span>
+        <span class="token comment">//      },</span>
+        <span class="token comment">//      i: moduleId,</span>
+        <span class="token comment">//      l: false</span>
+        <span class="token comment">//  }</span>
+        <span class="token comment">// }</span>
+        <span class="token keyword">var</span> module <span class="token operator">=</span> installedModules<span class="token punctuation">[</span>moduleId<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            i<span class="token operator">:</span> moduleId<span class="token punctuation">,</span>
+            l<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+            exports<span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token comment">// Execute the module function</span>
+        <span class="token comment">// &#x51FD;&#x6570;&#x6267;&#x884C;&#xFF0C;&#x7ED1;&#x5B9A;this</span>
+        <span class="token comment">// module&#xFF0C;module.exports, __webpack_require__&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x5F62;&#x5F0F;&#x4F20;&#x9012;&#x7ED9;&#x51FD;&#x6570;</span>
+        modules<span class="token punctuation">[</span>moduleId<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span>exports<span class="token punctuation">,</span> module<span class="token punctuation">,</span> module<span class="token punctuation">.</span>exports<span class="token punctuation">,</span> __webpack_require__<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Flag the module as loaded</span>
+        <span class="token comment">// &#x6807;&#x8BB0;&#x6A21;&#x5757;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5B8C;&#x6BD5;</span>
+        module<span class="token punctuation">.</span>l <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token comment">// Return the exports of the module</span>
+        <span class="token keyword">return</span> module<span class="token punctuation">.</span>exports<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// expose the modules object (__webpack_modules__)</span>
+    __webpack_require__<span class="token punctuation">.</span>m <span class="token operator">=</span> modules<span class="token punctuation">;</span>
+    <span class="token comment">// expose the module cache</span>
+    __webpack_require__<span class="token punctuation">.</span>c <span class="token operator">=</span> installedModules<span class="token punctuation">;</span>
+    <span class="token comment">// define getter function for harmony exports</span>
+    __webpack_require__<span class="token punctuation">.</span><span class="token function-variable function">d</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">exports<span class="token punctuation">,</span> name<span class="token punctuation">,</span> getter</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>__webpack_require__<span class="token punctuation">.</span><span class="token function">o</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> name<span class="token punctuation">,</span> <span class="token punctuation">{</span> enumerable<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> get<span class="token operator">:</span> getter <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// define __esModule on exports</span>
+    __webpack_require__<span class="token punctuation">.</span><span class="token function-variable function">r</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">exports</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> Symbol <span class="token operator">!==</span> <span class="token string">&apos;undefined&apos;</span> <span class="token operator">&amp;&amp;</span> Symbol<span class="token punctuation">.</span>toStringTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> Symbol<span class="token punctuation">.</span>toStringTag<span class="token punctuation">,</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token string">&apos;Module&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>exports<span class="token punctuation">,</span> <span class="token string">&apos;__esModule&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> value<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// create a fake namespace object</span>
+    <span class="token comment">// mode &amp; 1: value is a module id, require it</span>
+    <span class="token comment">// mode &amp; 2: merge all properties of value into the ns</span>
+    <span class="token comment">// mode &amp; 4: return value when already ns object</span>
+    <span class="token comment">// mode &amp; 8|1: behave like require</span>
+    __webpack_require__<span class="token punctuation">.</span><span class="token function-variable function">t</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> mode</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>mode <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> value <span class="token operator">=</span> <span class="token function">__webpack_require__</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>mode <span class="token operator">&amp;</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>mode <span class="token operator">&amp;</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> value <span class="token operator">===</span> <span class="token string">&apos;object&apos;</span> <span class="token operator">&amp;&amp;</span> value <span class="token operator">&amp;&amp;</span> value<span class="token punctuation">.</span>__esModule<span class="token punctuation">)</span> <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+        <span class="token keyword">var</span> ns <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        __webpack_require__<span class="token punctuation">.</span><span class="token function">r</span><span class="token punctuation">(</span>ns<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>ns<span class="token punctuation">,</span> <span class="token string">&apos;default&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> enumerable<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> value<span class="token operator">:</span> value <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>mode <span class="token operator">&amp;</span> <span class="token number">2</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">typeof</span> value <span class="token operator">!=</span> <span class="token string">&apos;string&apos;</span><span class="token punctuation">)</span> <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> key <span class="token keyword">in</span> value<span class="token punctuation">)</span> __webpack_require__<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>ns<span class="token punctuation">,</span> key<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">key</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> value<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> key<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ns<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// getDefaultExport function for compatibility with non-harmony modules</span>
+    __webpack_require__<span class="token punctuation">.</span><span class="token function-variable function">n</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">module</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> getter <span class="token operator">=</span> module <span class="token operator">&amp;&amp;</span> module<span class="token punctuation">.</span>__esModule <span class="token operator">?</span>
+            <span class="token keyword">function</span> <span class="token function">getDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> module<span class="token punctuation">[</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token operator">:</span>
+            <span class="token keyword">function</span> <span class="token function">getModuleExports</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> module<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        __webpack_require__<span class="token punctuation">.</span><span class="token function">d</span><span class="token punctuation">(</span>getter<span class="token punctuation">,</span> <span class="token string">&apos;a&apos;</span><span class="token punctuation">,</span> getter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> getter<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// Object.prototype.hasOwnProperty.call</span>
+    __webpack_require__<span class="token punctuation">.</span><span class="token function-variable function">o</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">object<span class="token punctuation">,</span> property</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>object<span class="token punctuation">,</span> property<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token comment">// __webpack_public_path__</span>
+    __webpack_require__<span class="token punctuation">.</span>p <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+    <span class="token comment">// Load entry module and return exports</span>
+    <span class="token keyword">return</span> <span class="token function">__webpack_require__</span><span class="token punctuation">(</span>__webpack_require__<span class="token punctuation">.</span>s <span class="token operator">=</span> <span class="token string">&quot;./src/index.js&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">/************************************************************************/</span>
+<span class="token punctuation">(</span><span class="token punctuation">{</span>
 
-  &quot;./src/index.js&quot;: (function(module, exports) {
-      const result = &quot;webpack4&quot;//# sourceURL=webpack:///./src/index.js?;
-    })
+  <span class="token string">&quot;./src/index.js&quot;</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">module<span class="token punctuation">,</span> exports</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token string">&quot;webpack4&quot;</span><span class="token comment">//# sourceURL=webpack:///./src/index.js?;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-});
-</code></pre><h5 id="&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#xFF0C;&#x6309;&#x9700;&#x52A0;&#x8F7D;">&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#xFF0C;&#x6309;&#x9700;&#x52A0;&#x8F7D;</h5>
-<pre class="language-"><code>import(&apos;./test.js&apos;).then(result =&gt; {
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#xFF0C;&#x6309;&#x9700;&#x52A0;&#x8F7D;">&#x52A8;&#x6001;&#x52A0;&#x8F7D;&#xFF0C;&#x6309;&#x9700;&#x52A0;&#x8F7D;</h5>
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">&apos;./test.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">result</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
    &#xB7;&#xB7;&#xB7; 
-})
-</code></pre><p>&#x6700;&#x7EC8;test.js&#x4F1A;&#x4F5C;&#x4E3A;&#x989D;&#x5916;&#x7684;chunk&#x72EC;&#x7ACB;&#x6253;&#x5305;&#x51FA;&#x6765;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x547D;&#x540D;&#x6309;&#x6570;&#x5B57;&#x9012;&#x589E;&#xFF0C;<code>0.js</code>
-<img src="../../imgs/webpack-01.png" alt=""></p>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x6700;&#x7EC8;test.js&#x4F1A;&#x4F5C;&#x4E3A;&#x989D;&#x5916;&#x7684;chunk&#x72EC;&#x7ACB;&#x6253;&#x5305;&#x51FA;&#x6765;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x547D;&#x540D;&#x6309;&#x6570;&#x5B57;&#x9012;&#x589E;&#xFF0C;<code>0.js</code>
+<img src="../imgs/webpack-01.png" alt=""></p>
 <p>&#x539F;&#x7406;&#xFF1A;
 &#x5F02;&#x6B65;&#x6A21;&#x5757;&#x4F1A;&#x5728;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;webpackJsonp&#x961F;&#x5217;&#xFF0C;&#x5C06;&#x6A21;&#x5757;chunkname&#x548C;&#x6A21;&#x5757;&#x5185;&#x5BB9;&#x4FDD;&#x5B58;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x3002;</p>
-<pre class="language-"><code>&#xFF08;window[&quot;webpackjsonp&quot;].push([0], {
-    &quot;./src/test.js&quot;: (function(module, __webpack_exports__, __webpack_require__) {
+<pre class="language-"><code class="lang-js">&#xFF08;window<span class="token punctuation">[</span><span class="token string">&quot;webpackjsonp&quot;</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;./src/test.js&quot;</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">module<span class="token punctuation">,</span> __webpack_exports__<span class="token punctuation">,</span> __webpack_require__</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         &#xB7;&#xB7;&#xB7;
-    })
-})
-</code></pre><p>&#x4E3B;&#x6A21;&#x5757;&#x901A;&#x8FC7;<code>__webpack_require__.e(0).then()</code>&#x7684;&#x65B9;&#x5F0F;&#x5F15;&#x5165;&#x5F02;&#x6B65;&#x6A21;&#x5757;&#xFF0C;e&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x903B;&#x8F91;&#x5C31;&#x662F;&#x52A8;&#x6001;&#x63D2;&#x5165;script&#x6807;&#x7B7E;</p>
-<pre class="language-"><code>__webpack_require__.e = function requireEnsure(chunkId) {
-         var promises = [];
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x4E3B;&#x6A21;&#x5757;&#x901A;&#x8FC7;<code>__webpack_require__.e(0).then()</code>&#x7684;&#x65B9;&#x5F0F;&#x5F15;&#x5165;&#x5F02;&#x6B65;&#x6A21;&#x5757;&#xFF0C;e&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x903B;&#x8F91;&#x5C31;&#x662F;&#x52A8;&#x6001;&#x63D2;&#x5165;script&#x6807;&#x7B7E;</p>
+<pre class="language-"><code class="lang-js">__webpack_require__<span class="token punctuation">.</span><span class="token function-variable function">e</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token function">requireEnsure</span><span class="token punctuation">(</span><span class="token parameter">chunkId</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">var</span> promises <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
 
-         // JSONP chunk loading for javascript
+         <span class="token comment">// JSONP chunk loading for javascript</span>
 
-         var installedChunkData = installedChunks[chunkId];
-         if(installedChunkData !== 0) { // 0 means &quot;already installed&quot;.
+         <span class="token keyword">var</span> installedChunkData <span class="token operator">=</span> installedChunks<span class="token punctuation">[</span>chunkId<span class="token punctuation">]</span><span class="token punctuation">;</span>
+         <span class="token keyword">if</span><span class="token punctuation">(</span>installedChunkData <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 0 means &quot;already installed&quot;.</span>
 
-             // a Promise means &quot;currently loading&quot;.
-             if(installedChunkData) {
-                 promises.push(installedChunkData[2]);
-             } else {
-                 // setup Promise in chunk cache
-                 var promise = new Promise(function(resolve, reject) {
-                     installedChunkData = installedChunks[chunkId] = [resolve, reject];
-                 });
-                 promises.push(installedChunkData[2] = promise);
+             <span class="token comment">// a Promise means &quot;currently loading&quot;.</span>
+             <span class="token keyword">if</span><span class="token punctuation">(</span>installedChunkData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                 promises<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>installedChunkData<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                 <span class="token comment">// setup Promise in chunk cache</span>
+                 <span class="token keyword">var</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                     installedChunkData <span class="token operator">=</span> installedChunks<span class="token punctuation">[</span>chunkId<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 promises<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>installedChunkData<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> promise<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                 // start chunk loading
-                 var script = document.createElement(&apos;script&apos;);
-                 var onScriptComplete;
+                 <span class="token comment">// start chunk loading</span>
+                 <span class="token keyword">var</span> script <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&apos;script&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 <span class="token keyword">var</span> onScriptComplete<span class="token punctuation">;</span>
 
-                 script.charset = &apos;utf-8&apos;;
-                 script.timeout = 120;
-                 if (__webpack_require__.nc) {
-                     script.setAttribute(&quot;nonce&quot;, __webpack_require__.nc);
-                 }
-                 script.src = jsonpScriptSrc(chunkId);
+                 script<span class="token punctuation">.</span>charset <span class="token operator">=</span> <span class="token string">&apos;utf-8&apos;</span><span class="token punctuation">;</span>
+                 script<span class="token punctuation">.</span>timeout <span class="token operator">=</span> <span class="token number">120</span><span class="token punctuation">;</span>
+                 <span class="token keyword">if</span> <span class="token punctuation">(</span>__webpack_require__<span class="token punctuation">.</span>nc<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                     script<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">&quot;nonce&quot;</span><span class="token punctuation">,</span> __webpack_require__<span class="token punctuation">.</span>nc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 <span class="token punctuation">}</span>
+                 script<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token function">jsonpScriptSrc</span><span class="token punctuation">(</span>chunkId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-                 // create error before stack unwound to get useful stacktrace later
-                 var error = new Error();
-                 onScriptComplete = function (event) {
-                     // avoid mem leaks in IE.
-                     script.onerror = script.onload = null;
-                     clearTimeout(timeout);
-                     var chunk = installedChunks[chunkId];
-                     if(chunk !== 0) {
-                         if(chunk) {
-                             var errorType = event &amp;&amp; (event.type === &apos;load&apos; ? &apos;missing&apos; : event.type);
-                             var realSrc = event &amp;&amp; event.target &amp;&amp; event.target.src;
-                             error.message = &apos;Loading chunk &apos; + chunkId + &apos; failed.\n(&apos; + errorType + &apos;: &apos; + realSrc + &apos;)&apos;;
-                             error.name = &apos;ChunkLoadError&apos;;
-                             error.type = errorType;
-                             error.request = realSrc;
-                             chunk[1](error);
-                         }
-                         installedChunks[chunkId] = undefined;
-                     }
-                 };
-                 var timeout = setTimeout(function(){
-                     onScriptComplete({ type: &apos;timeout&apos;, target: script });
-                 }, 120000);
-                 script.onerror = script.onload = onScriptComplete;
-                 document.head.appendChild(script);
-             }
-         }
-         return Promise.all(promises);
-     };
-</code></pre><p>&#x95EE;&#x9898;&#xFF1A; 
+                 <span class="token comment">// create error before stack unwound to get useful stacktrace later</span>
+                 <span class="token keyword">var</span> error <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 <span class="token function-variable function">onScriptComplete</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                     <span class="token comment">// avoid mem leaks in IE.</span>
+                     script<span class="token punctuation">.</span>onerror <span class="token operator">=</span> script<span class="token punctuation">.</span>onload <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                     <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                     <span class="token keyword">var</span> chunk <span class="token operator">=</span> installedChunks<span class="token punctuation">[</span>chunkId<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                     <span class="token keyword">if</span><span class="token punctuation">(</span>chunk <span class="token operator">!==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                         <span class="token keyword">if</span><span class="token punctuation">(</span>chunk<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                             <span class="token keyword">var</span> errorType <span class="token operator">=</span> event <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>event<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">&apos;load&apos;</span> <span class="token operator">?</span> <span class="token string">&apos;missing&apos;</span> <span class="token operator">:</span> event<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                             <span class="token keyword">var</span> realSrc <span class="token operator">=</span> event <span class="token operator">&amp;&amp;</span> event<span class="token punctuation">.</span>target <span class="token operator">&amp;&amp;</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>src<span class="token punctuation">;</span>
+                             error<span class="token punctuation">.</span>message <span class="token operator">=</span> <span class="token string">&apos;Loading chunk &apos;</span> <span class="token operator">+</span> chunkId <span class="token operator">+</span> <span class="token string">&apos; failed.\n(&apos;</span> <span class="token operator">+</span> errorType <span class="token operator">+</span> <span class="token string">&apos;: &apos;</span> <span class="token operator">+</span> realSrc <span class="token operator">+</span> <span class="token string">&apos;)&apos;</span><span class="token punctuation">;</span>
+                             error<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">&apos;ChunkLoadError&apos;</span><span class="token punctuation">;</span>
+                             error<span class="token punctuation">.</span>type <span class="token operator">=</span> errorType<span class="token punctuation">;</span>
+                             error<span class="token punctuation">.</span>request <span class="token operator">=</span> realSrc<span class="token punctuation">;</span>
+                             chunk<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                         <span class="token punctuation">}</span>
+                         installedChunks<span class="token punctuation">[</span>chunkId<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">undefined</span><span class="token punctuation">;</span>
+                     <span class="token punctuation">}</span>
+                 <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                 <span class="token keyword">var</span> timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                     <span class="token function">onScriptComplete</span><span class="token punctuation">(</span><span class="token punctuation">{</span> type<span class="token operator">:</span> <span class="token string">&apos;timeout&apos;</span><span class="token punctuation">,</span> target<span class="token operator">:</span> script <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">120000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                 script<span class="token punctuation">.</span>onerror <span class="token operator">=</span> script<span class="token punctuation">.</span>onload <span class="token operator">=</span> onScriptComplete<span class="token punctuation">;</span>
+                 document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>script<span class="token punctuation">)</span><span class="token punctuation">;</span>
+             <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+         <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>promises<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x95EE;&#x9898;&#xFF1A; 
     &#x5F02;&#x6B65;&#x6A21;&#x5757;&#x662F;webpack&#x81EA;&#x8EAB;&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x7684;&#x6A21;&#x5757;&#xFF0C;chunk&#x7684;&#x540D;&#x79F0;0&#xFF0C;1&#xFF0C;2&#x53EA;&#x80FD;&#x88AB;&#x4E3B;&#x6A21;&#x5757;&#x8BC6;&#x522B;&#x548C;&#x7EF4;&#x62A4;&#xFF0C;&#x8FD9;&#x5BFC;&#x81F4;&#x65E0;&#x6CD5;&#x4E0D;&#x540C;&#x9879;&#x76EE;&#x4E2D;&#x5171;&#x4EAB;&#x6A21;&#x5757;&#x3002;
 webpack4&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x52A0;&#x5165;webpackChunkName, &#x4F46;&#x662F;&#x8FD9;&#x4F9D;&#x7136;&#x5B58;&#x5728;&#x95EE;&#x9898;&#xFF0C;&#x547D;&#x540D;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x51B2;&#x7A81;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x591A;&#x56E2;&#x961F;&#x4E0D;&#x597D;&#x7BA1;&#x7406;&#x3002;</p>
-<pre class="language-"><code>import(/*webpackChunkName:&quot;test&quot;*/&apos;./index.js&apos;).then(_ =&gt; {
+<pre class="language-"><code class="lang-js"><span class="token keyword">import</span><span class="token punctuation">(</span><span class="token comment">/*webpackChunkName:&quot;test&quot;*/</span><span class="token string">&apos;./index.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">_</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
 
-})
-</code></pre><h2 id="webpack5&#x65B0;&#x7279;&#x6027;">webpack5&#x65B0;&#x7279;&#x6027;</h2>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="webpack5&#x65B0;&#x7279;&#x6027;">webpack5&#x65B0;&#x7279;&#x6027;</h2>
 <ol>
 <li>&#x901F;&#x5EA6;&#x5FEB;</li>
 <li>&#x81EA;&#x8EAB;&#x4F1A;&#x5E26;&#x5404;&#x79CD;&#x63D2;&#x4EF6;&#x529F;&#x80FD;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x4F9D;&#x8D56;&#x7B2C;&#x4E09;&#x65B9;&#x63D2;&#x4EF6;</li>
@@ -1754,29 +1772,24 @@ webpack4&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x52A0;&#x5165;webpackC
 <li>&#x6DF1;&#x5EA6;tree-shaking   webpack4 &#x9700;&#x8981;&#x5B89;&#x88C5;&#x63D2;&#x4EF6; &#x7C7B;&#x4F3C;prepack</li>
 <li>&#x6A21;&#x5757;&#x5316; -&gt; &#x5FAE;&#x524D;&#x7AEF;</li>
 </ol>
-<p>webpack
-    &#x5206;&#x9636;&#x6BB5; =&gt; &#x751F;&#x547D;&#x5468;&#x671F;</p>
-<p>&#x63A7;&#x5236;&#x6574;&#x4E2A;&#x6784;&#x5EFA;&#x6D41;&#x7A0B;&#x7684;&#x9636;&#x6BB5;  =&gt; compiler
-    &#x5BF9;&#x5E94;&#x9636;&#x6BB5; =&gt; call =&gt; tap() =&gt; &#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;</p>
-<pre class="language-"><code>&#x8D1F;&#x8D23;&#x4E0D;&#x540C;&#x7684;&#x9636;&#x6BB5;&#xFF0C;&#x628A;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x72D7;&#x5B50;&#x6302;&#x8F7D;&#x5230;&#x8EAB;&#x4E0A;
-
-&#x521D;&#x59CB;&#x5316;&#x6240;&#x6709;&#x63D2;&#x4EF6;&#xFF0C; &#x628A;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;&#x5BF9;&#x996E;&#x66F4;&#x591A;&#x94A9;&#x5B50;&#x91CC;&#x9762;
-&#x5230;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x51FA;&#x53D1;&#x5BF9;&#x5E94;&#x7684;&#x63D2;&#x4EF6;&#x94A9;&#x5B50;&#xFF0C;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x903B;&#x8F91;
-</code></pre><p>&#x7F16;&#x8BD1;&#x4EE3;&#x7801; =&gt; compiltion</p>
+<p>&#x7F16;&#x8BD1;&#x4EE3;&#x7801; =&gt; compiltion</p>
 <ol>
 <li>&#x7F16;&#x8BD1;runloader</li>
 <li>ast =&gt; addModule</li>
 <li><p>dependency</p>
-<pre class="language-"><code> {
-     name: &apos;a.js&apos;,
-     code: &apos;&apos;,
-     dep: [],
-     ast: &apos;&apos;
- }
-</code></pre></li>
+<pre class="language-"><code class="lang-js"> <span class="token punctuation">{</span>
+     name<span class="token operator">:</span> <span class="token string">&apos;a.js&apos;</span><span class="token punctuation">,</span>
+     code<span class="token operator">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">,</span>
+     dep<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+     ast<span class="token operator">:</span> <span class="token string">&apos;&apos;</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+</li>
 <li>&#x57FA;&#x4E8E;&#x57FA;&#x7840;&#x6A21;&#x677F;&#xFF0C;&#x6784;&#x5EFA;&#x6A21;&#x677F;&#xFF0C;&#x904D;&#x5386;&#x4F9D;&#x8D56;</li>
 <li>&#x751F;&#x6210;&#x6587;&#x4EF6;</li>
 </ol>
+<h3 id="loader">loader</h3>
+<p>&#x6709;&#x4E00;&#x4E2A;&#x573A;&#x666F;&#x662F;loader&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x5904;&#x7406;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;loader&#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x80FD;&#x4F9D;&#x8D56;&#x4E8E;&#x5916;&#x90E8;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x5BFC;&#x81F4;&#x4ED6;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5904;&#x7406;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F7F;&#x7528;&#x9700;&#x8981;&#x5728;loader&#x6267;&#x884C;&#x65F6;&#x4F7F;&#x7528;this.asyn&#x6765;&#x6807;&#x5FD7;&#x8BE5;loader&#x662F;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x7684;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;this.callback&#x6765;&#x8FD4;&#x56DE;loader&#x5904;&#x7406;&#x7684;&#x7ED3;&#x679C;</p>
 
                                 
                                 </section>
@@ -1820,7 +1833,7 @@ webpack4&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#xFF1A;&#x52A0;&#x5165;webpackC
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Webpack底层原理","level":"1.9.10","depth":2,"next":{"title":"优化","level":"1.9.11","depth":2,"path":"webpack/优化.md","ref":"webpack/优化.md","articles":[]},"previous":{"title":"TreeShaking","level":"1.9.9","depth":2,"path":"webpack/treeShaking.md","ref":"webpack/treeShaking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack/webpack底层原理.md","mtime":"2021-02-18T08:39:24.537Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-02T06:39:37.621Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Webpack底层原理","level":"1.9.10","depth":2,"next":{"title":"优化","level":"1.9.11","depth":2,"path":"webpack/优化.md","ref":"webpack/优化.md","articles":[]},"previous":{"title":"TreeShaking","level":"1.9.9","depth":2,"path":"webpack/treeShaking.md","ref":"webpack/treeShaking.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"webpack/webpack底层原理.md","mtime":"2021-03-06T10:44:23.138Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-06T10:44:56.029Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -11,7 +11,7 @@ webpack中watch的原理是利用轮询，判断文件最后编辑时间是否�
 
 #### 原理
 webpack实现了commonjs规范，commonjs是node的模块化，而commonjs是同步阻塞式加载，为了实现commonjs规范，，webpack封装了自己的模块化，把所有模块和模块之间的依赖都展平，并以key：value都形式将模块展平后的对象传给一个闭包函数。
-```
+```js
 (function(modules) { // webpackBootstrap
   // The module cache
   // 缓存模块
@@ -106,17 +106,17 @@ webpack实现了commonjs规范，commonjs是node的模块化，而commonjs是同
 ```
 
 ##### 动态加载，按需加载
-```
+```js
 import('./test.js').then(result => {
    ··· 
 })
 ```
 最终test.js会作为额外的chunk独立打包出来，默认的命名按数字递增，```0.js```
-![](../../imgs/webpack-01.png)
+![](../imgs/webpack-01.png)
 
 原理：
 异步模块会在维护一个webpackJsonp队列，将模块chunkname和模块内容保存到队列中。
-```
+```js
 （window["webpackjsonp"].push([0], {
     "./src/test.js": (function(module, __webpack_exports__, __webpack_require__) {
         ···
@@ -125,7 +125,7 @@ import('./test.js').then(result => {
 ```
 
 主模块通过```__webpack_require__.e(0).then()```的方式引入异步模块，e函数的实现逻辑就是动态插入script标签
-```
+```js
 __webpack_require__.e = function requireEnsure(chunkId) {
  		var promises = [];
 
@@ -190,7 +190,7 @@ __webpack_require__.e = function requireEnsure(chunkId) {
     异步模块是webpack自身内部维护的模块，chunk的名称0，1，2只能被主模块识别和维护，这导致无法不同项目中共享模块。
 webpack4的解决方式：加入webpackChunkName, 但是这依然存在问题，命名容易出现冲突，特别是多团队不好管理。
 
-```
+```js
 import(/*webpackChunkName:"test"*/'./index.js').then(_ => {
 
 })
@@ -207,24 +207,12 @@ import(/*webpackChunkName:"test"*/'./index.js').then(_ => {
 
 
 
-webpack
-	分阶段 => 生命周期
-
-控制整个构建流程的阶段  => compiler
-	对应阶段 => call => tap() => 要做的事情
-
-	负责不同的阶段，把不同阶段生命周期的狗子挂载到身上
-
-	初始化所有插件， 把不同阶段要做的事情，添加到对饮更多钩子里面
-	到不同阶段的时候，出发对应的插件钩子，调用对应的逻辑
-
-
 编译代码 => compiltion
 
 1. 编译runloader
 2. ast => addModule
 3. dependency
-	```
+	```js
 	{
 		name: 'a.js',
 		code: '',
@@ -235,3 +223,9 @@ webpack
 	```
 4. 基于基础模板，构建模板，遍历依赖
 5. 生成文件
+
+
+
+### loader
+有一个场景是loader中的异步处理，有一些loader在执行过程中可能依赖于外部的结果。导致他必须使用异步的方式来处理，这个使用需要在loader执行时使用this.asyn来标志该loader是异步处理的，然后使用this.callback来返回loader处理的结果
+
