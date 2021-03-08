@@ -5,14 +5,14 @@
 
 ### Frame
 那么浏览器每一帧都需要完成哪些工作？
-![](../../imgs/frame.jpg)
+![](../imgs/frame.jpg)
 
 
 通过上图可看到，一帧内需要完成如下六个步骤的任务：
 
 1. 处理用户的交互
 2. JS 解析执行
-3. 帧开始。窗口尺寸变更，页面滚去等的处理
+3. 帧开始。窗口尺寸变更，页面滚动等的处理
 4. requestAnimationFrame(rAF)
 5. 布局
 6. 绘制
@@ -22,7 +22,7 @@
 
 上面六个步骤完成后没超过 16 ms，说明时间有富余，此时就会执行 requestIdleCallback 里注册的任务。
 
-![](../../imgs/requestIdleCallback.jpg)
+![](../imgs/requestIdleCallback.jpg)
 
 
 从上图也可看出，和 requestAnimationFrame 每一帧必定会执行不同，requestIdleCallback 是捡浏览器空闲来执行任务。

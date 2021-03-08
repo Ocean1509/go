@@ -44,6 +44,7 @@
   * [模块化](node/模块化.md)
   * [跨域](node/跨域.md)
   * [错误处理](node/错误处理.md)
+  * [内存泄漏](node/内存泄漏.md)
 
 * [React](react/README.md)
   * [Index](react/index.md)
