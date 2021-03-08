@@ -1,6 +1,6 @@
-![](../../imgs/buffer.png)
+![](../imgs/buffer.png)
 
-```
+```js
 // 创建一个长度为 10、以零填充的 Buffer。
 const buf1 = Buffer.alloc(10);
 

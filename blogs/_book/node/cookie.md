@@ -1,5 +1,5 @@
 ### cookie相关
-![](../../imgs/cookie-xmind.png)
+![](../imgs/cookie-xmind.png)
 
 
 ### cookie-parse的原理
