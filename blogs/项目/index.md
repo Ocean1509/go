@@ -31,3 +31,32 @@
     webpack plugin编写过程是拿到命令行参数配置，修改webpack entry，利用htmlwebpackplugin，在body末尾添加 脚本(afterEmit)
 
     jenkins
+
+
+
+
+插件系统：
+    每个券商有 不同的配置信息，资源文件，每个券商会有对应的文件夹
+    配置信息包括：
+        券商的信息，名称，升级地址等
+        包含特定功能模块，
+        特殊流程处理
+    资源文件：
+        logo，其他特殊图片
+    
+    最后需要根据--target值返回一个统一的配置文件
+
+
+    文件目录下有package.json文件
+
+    module：  入口模块, 特殊功能的入口，main.js里面有多个模块的执行函数
+    json文件配置
+        asset
+        hook： 定义hook名称，和需要执行的module方法
+                两种类别：
+                    同步执行(reduce)和异步执行(for循环)
+    
+    hook的触发类似于发布订阅
+
+mounted init初始化
+fireHook() 触发钩子

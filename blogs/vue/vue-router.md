@@ -17,7 +17,7 @@ go ->  window.history.go()
 全局守卫
     beforeEach  (权限认证)
     beforeResolve
-    beforeAfter
+    afterEach
 独享路由守卫
     beforeEnter
 组件守卫
