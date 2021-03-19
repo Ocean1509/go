@@ -501,6 +501,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.14" data-path="../js/domContentload和onload的区别.html">
+            
+                <a href="../js/domContentload和onload的区别.html">
+            
+                    
+                    domContentload和onload的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1684,6 +1697,55 @@
                                 <section class="normal markdown-section">
                                 
                                 <h2 id="vue">Vue</h2>
+<h3 id="vue&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x63CF;&#x8FF0;">vue&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x63CF;&#x8FF0;</h3>
+<p>beforeCreated,created,beforeMount(&#x6709;&#x6302;&#x8F7D;&#x5143;&#x7D20;),mounted,beforeUpdated,updated,beforeDestory,destoryed,activated,deactivated,errorCaptured
+&#x5168;&#x5C40;&#x9519;&#x8BEF;&#x6355;&#x83B7;&#xFF1A;errorHandler</p>
+<h3 id="&#x4E3A;&#x4EC0;&#x4E48;data&#x9700;&#x8981;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;">&#x4E3A;&#x4EC0;&#x4E48;data&#x9700;&#x8981;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;</h3>
+<p>&#x7EC4;&#x4EF6;&#x662F;&#x590D;&#x7528;&#x7684;&#xFF0C;&#x5982;&#x679C;data&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x6539;&#x53D8;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#x5176;&#x4ED6;&#x7EC4;&#x4EF6;&#x7684;data&#x503C;&#x4E5F;&#x4F1A;&#x6539;&#x53D8;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x7528;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6BCF;&#x6B21;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;data&#x526F;&#x672C;&#x3002;</p>
+<h3 id="computed-&#x548C;-watch&#x7684;&#x533A;&#x522B;">computed &#x548C; watch&#x7684;&#x533A;&#x522B;</h3>
+<h3 id="&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406;">&#x54CD;&#x5E94;&#x5F0F;&#x539F;&#x7406;</h3>
+<p>Object.defineProperty</p>
+<h3 id="vue3&#x54CD;&#x5E94;&#x5F0F;">vue3&#x54CD;&#x5E94;&#x5F0F;</h3>
+<p>proxy</p>
+<h3 id="&#x8FD0;&#x884C;&#x65F6;-&#x548C;-&#x7F16;&#x8BD1;&#x52A0;&#x8FD0;&#x884C;">&#x8FD0;&#x884C;&#x65F6; &#x548C; &#x7F16;&#x8BD1;&#x52A0;&#x8FD0;&#x884C;</h3>
+<h3 id="v-model&#x7684;&#x539F;&#x7406;">v-model&#x7684;&#x539F;&#x7406;</h3>
+<ol>
+<li>props + @input</li>
+<li>&#x7EC4;&#x4EF6;&#xFF1A;&#x7236;&#x5B50;&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;&#x7684;&#x8BED;&#x6CD5;&#x7CD6;  :value + @input</li>
+</ol>
+<h3 id="&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x4E2D;&#x6587;&#x8F93;&#x5165;">&#x5982;&#x4F55;&#x89E3;&#x51B3;&#x4E2D;&#x6587;&#x8F93;&#x5165;</h3>
+<p>&#x76D1;&#x542C;compositionStart&#xFF0C;compositionEnd</p>
+<h3 id="&#x4E8B;&#x4EF6;&#x7684;&#x539F;&#x7406;">&#x4E8B;&#x4EF6;&#x7684;&#x539F;&#x7406;</h3>
+<p>&#x539F;&#x751F;&#xFF1A;&#x5728;&#x751F;&#x6210;&#x771F;&#x5B9E;dom&#x8282;&#x70B9;&#x65F6;&#x7ED1;&#x5B9A;&#x4E8B;&#x4EF6;
+&#x7EC4;&#x4EF6;&#xFF1A;&#x53D1;&#x5E03;&#x8BA2;&#x9605;&#x6A21;&#x5F0F; $on  $emit</p>
+<h3 id="&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;">&#x7EC4;&#x4EF6;&#x901A;&#x4FE1;</h3>
+<p>props, &#x4E8B;&#x4EF6;&#xFF0C; $parents, $children, $listener, provide inject, eventBus, vuex</p>
+<h3 id="extends">extends</h3>
+<p>&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x6784;&#x9020;&#x5668;</p>
+<h3 id="&#x5168;&#x5C40;&#x6CE8;&#x518C;&#x7EC4;&#x4EF6;&#x548C;&#x5C40;&#x90E8;&#x6CE8;&#x518C;&#x7EC4;&#x4EF6;&#x7684;&#x533A;&#x522B;">&#x5168;&#x5C40;&#x6CE8;&#x518C;&#x7EC4;&#x4EF6;&#x548C;&#x5C40;&#x90E8;&#x6CE8;&#x518C;&#x7EC4;&#x4EF6;&#x7684;&#x533A;&#x522B;</h3>
+<h3 id="minxin&#x6DF7;&#x5165;">minxin&#x6DF7;&#x5165;</h3>
+<p>&#x6DF7;&#x5165;&#x4E00;&#x4E9B;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;</p>
+<h3 id="&#x52A8;&#x6001;&#x7EC4;&#x4EF6;is">&#x52A8;&#x6001;&#x7EC4;&#x4EF6;is</h3>
+<h3 id="&#x6709;&#x6CA1;&#x6709;&#x5199;&#x8FC7;directive">&#x6709;&#x6CA1;&#x6709;&#x5199;&#x8FC7;directive</h3>
+<p>v-enter</p>
+<h3 id="vite">Vite</h3>
+<h3 id="&#x6A21;&#x677F;&#x7F16;&#x8BD1;">&#x6A21;&#x677F;&#x7F16;&#x8BD1;</h3>
+<h3 id="nexttick&#x539F;&#x7406;">nexttick&#x539F;&#x7406;</h3>
+<h3 id="diff&#x7B97;&#x6CD5;">diff&#x7B97;&#x6CD5;</h3>
+<ol>
+<li>&#x8282;&#x70B9;&#x7684;&#x6BD4;&#x8F83;&#x4ECE;&#x8DE8;&#x7EA7;&#x5BF9;&#x6BD4;&#x53D8;&#x6210;&#x540C;&#x5C42;&#x5BF9;&#x6BD4;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x4ECE;o3&#x53D8;&#x6210;on</li>
+<li>&#x540C;&#x5C42;&#x6BD4;&#x8F83;&#x662F;&#x901A;&#x8FC7;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x7684;&#x79FB;&#x52A8;&#x5BF9;&#x6BD4;&#x3002;&#x65B0;&#x65E7;&#x5BF9;&#x6BD4;&#x8FC7;&#x7A0B;&#x662F;&#x901A;&#x8FC7;&#x5934;&#x5934;&#xFF0C;&#x5C3E;&#x5C3E;&#xFF0C;&#x5934;&#x5C3E;&#x7684;&#x65B9;&#x5F0F;</li>
+<li>&#x5982;&#x679C;&#x56DB;&#x4E2A;&#x5BF9;&#x6BD4;&#x90FD;&#x6CA1;&#x6709;&#x76F8;&#x540C;&#x8282;&#x70B9;&#xFF0C;&#x5219;&#x4F1A;&#x901A;&#x8FC7;key&#x5B58;&#x7684;map&#x503C;&#x53BB;&#x627E;&#xFF0C;&#x7136;&#x540E;&#x79FB;&#x52A8;&#x4F4D;&#x7F6E;</li>
+</ol>
+<h3 id="&#x4E3A;&#x4EC0;&#x4E48;&#x7528;with">&#x4E3A;&#x4EC0;&#x4E48;&#x7528;with</h3>
+<p>with&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x6A21;&#x677F;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x6B63;&#x597D;&#x5951;&#x5408;&#x3002;&#x7B80;&#x5316;&#x7F16;&#x8BD1;&#x6D41;&#x7A0B;</p>
+<h3 id="react&#x548C;vue&#x7684;&#x533A;&#x522B;">react&#x548C;vue&#x7684;&#x533A;&#x522B;</h3>
+<p>&#x8FD0;&#x884C;&#x65F6;&#x4F18;&#x5316;&#x548C;&#x7F16;&#x8BD1;&#x65F6;&#x4F18;&#x5316;
+vue: template&#x7EA6;&#x675F;&#xFF0C;&#x9759;&#x6001;&#x8282;&#x70B9;&#x6807;&#x8BB0;&#xFF0C;&#x6570;&#x636E;&#x4F9D;&#x8D56;&#x6536;&#x96C6;</p>
+<p>react: &#x4E0D;&#x505A;&#x6A21;&#x677F;&#x7EA6;&#x675F;&#xFF0C;&#x5199;&#x6CD5;&#x81EA;&#x7531;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x54EA;&#x4E9B;&#x6570;&#x636E;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x9700;&#x8981;&#x5BF9;&#x6574;&#x4E2A;dom&#x8FDB;&#x884C;dom diff&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x4F1A;&#x6709;&#x963B;&#x585E;&#xFF0C;&#x6240;&#x4EE5;&#x5F3A;&#x8C03;&#x8FD0;&#x884C;&#x65F6;&#x4F18;&#x5316;&#xFF0C;&#x5F15;&#x5165;fiber&#x67B6;&#x6784;&#xFF0C;&#x53EF;&#x4E2D;&#x65AD;</p>
+<h3 id="react-diff-&#x548C;vue-diff&#x7684;&#x533A;&#x522B;">react diff &#x548C;vue diff&#x7684;&#x533A;&#x522B;</h3>
+<h3 id="&#x8BF4;&#x4E00;&#x4E0B;vuex">&#x8BF4;&#x4E00;&#x4E0B;vuex</h3>
+<h3 id="vue-router">vue-Router</h3>
 
                                 
                                 </section>
@@ -1727,7 +1789,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Vue","level":"1.9","depth":1,"next":{"title":"Vue","level":"1.9.1","depth":2,"path":"vue/vue.md","ref":"vue/vue.md","articles":[]},"previous":{"title":"基础理解","level":"1.8.1","depth":2,"path":"typescript/基础理解.md","ref":"typescript/基础理解.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vue/README.md","mtime":"2021-02-19T09:11:38.804Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-15T10:08:28.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Vue","level":"1.9","depth":1,"next":{"title":"Vue","level":"1.9.1","depth":2,"path":"vue/vue.md","ref":"vue/vue.md","articles":[]},"previous":{"title":"基础理解","level":"1.8.1","depth":2,"path":"typescript/基础理解.md","ref":"typescript/基础理解.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vue/README.md","mtime":"2021-03-19T08:51:45.633Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-19T08:51:59.806Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

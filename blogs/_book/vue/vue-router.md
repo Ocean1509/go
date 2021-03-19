@@ -44,8 +44,14 @@ hash，history，abstract(非浏览器环境，通过一个栈来模拟浏览器
 ### 原理大致思路
 
 hash模式
+
     导航栏改变 -> window.addEventListener('hashChange', 修改视图)  ->  更新视图
+
     页面路由跳转 -> router push ->  window.location.hash = 'xxx'  ->  更新视图
                 -> router replace -> window.location.replace   ->  更新视图
+
 history模式
-    页面路由跳转 -> router push
+
+    页面路由跳转 -> router push -> window.location.pushState()
+    
+    路由刷新 -> 404

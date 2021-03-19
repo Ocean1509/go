@@ -501,6 +501,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.14" data-path="../js/domContentload和onload的区别.html">
+            
+                <a href="../js/domContentload和onload的区别.html">
+            
+                    
+                    domContentload和onload的区别
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1719,13 +1732,16 @@ go -&gt;  window.history.go()</p>
 hash&#xFF0C;history&#xFF0C;abstract(&#x975E;&#x6D4F;&#x89C8;&#x5668;&#x73AF;&#x5883;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x6808;&#x6765;&#x6A21;&#x62DF;&#x6D4F;&#x89C8;&#x5668;&#x5386;&#x53F2;&#x8C03;&#x7528;&#x6808;&#x7684;&#x884C;&#x4E3A;)</li>
 </ol>
 <h3 id="&#x539F;&#x7406;&#x5927;&#x81F4;&#x601D;&#x8DEF;">&#x539F;&#x7406;&#x5927;&#x81F4;&#x601D;&#x8DEF;</h3>
-<p>hash&#x6A21;&#x5F0F;
-    &#x5BFC;&#x822A;&#x680F;&#x6539;&#x53D8; -&gt; window.addEventListener(&apos;hashChange&apos;, &#x4FEE;&#x6539;&#x89C6;&#x56FE;)  -&gt;  &#x66F4;&#x65B0;&#x89C6;&#x56FE;
-    &#x9875;&#x9762;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C; -&gt; router push -&gt;  window.location.hash = &apos;xxx&apos;  -&gt;  &#x66F4;&#x65B0;&#x89C6;&#x56FE;
-                -&gt; router replace -&gt; window.location.replace   -&gt;  &#x66F4;&#x65B0;&#x89C6;&#x56FE;
-history&#x6A21;&#x5F0F;
-    &#x9875;&#x9762;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C; -&gt; router push</p>
+<p>hash&#x6A21;&#x5F0F;</p>
+<pre class="language-"><code>&#x5BFC;&#x822A;&#x680F;&#x6539;&#x53D8; -&gt; window.addEventListener(&apos;hashChange&apos;, &#x4FEE;&#x6539;&#x89C6;&#x56FE;)  -&gt;  &#x66F4;&#x65B0;&#x89C6;&#x56FE;
 
+&#x9875;&#x9762;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C; -&gt; router push -&gt;  window.location.hash = &apos;xxx&apos;  -&gt;  &#x66F4;&#x65B0;&#x89C6;&#x56FE;
+            -&gt; router replace -&gt; window.location.replace   -&gt;  &#x66F4;&#x65B0;&#x89C6;&#x56FE;
+</code></pre><p>history&#x6A21;&#x5F0F;</p>
+<pre class="language-"><code>&#x9875;&#x9762;&#x8DEF;&#x7531;&#x8DF3;&#x8F6C; -&gt; router push -&gt; window.location.pushState()
+
+&#x8DEF;&#x7531;&#x5237;&#x65B0; -&gt; 404
+</code></pre>
                                 
                                 </section>
                             
@@ -1768,7 +1784,7 @@ history&#x6A21;&#x5F0F;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Vue-Router","level":"1.9.3","depth":2,"next":{"title":"Webpack","level":"1.10","depth":1,"path":"webpack/README.md","ref":"webpack/README.md","articles":[{"title":"CMD Vs AMD","level":"1.10.1","depth":2,"path":"webpack/CMD vs AMD.md","ref":"webpack/CMD vs AMD.md","articles":[]},{"title":"Ast","level":"1.10.2","depth":2,"path":"webpack/ast.md","ref":"webpack/ast.md","articles":[]},{"title":"Devtool","level":"1.10.3","depth":2,"path":"webpack/devtool.md","ref":"webpack/devtool.md","articles":[]},{"title":"External的理解","level":"1.10.4","depth":2,"path":"webpack/external的理解.md","ref":"webpack/external的理解.md","articles":[]},{"title":"Index","level":"1.10.5","depth":2,"path":"webpack/index.md","ref":"webpack/index.md","articles":[]},{"title":"Project","level":"1.10.6","depth":2,"path":"webpack/project.md","ref":"webpack/project.md","articles":[]},{"title":"Scope Hoisting","level":"1.10.7","depth":2,"path":"webpack/scope-hoisting.md","ref":"webpack/scope-hoisting.md","articles":[]},{"title":"Tapable","level":"1.10.8","depth":2,"path":"webpack/tapable.md","ref":"webpack/tapable.md","articles":[]},{"title":"TreeShaking","level":"1.10.9","depth":2,"path":"webpack/treeShaking.md","ref":"webpack/treeShaking.md","articles":[]},{"title":"Webpack底层原理","level":"1.10.10","depth":2,"path":"webpack/webpack底层原理.md","ref":"webpack/webpack底层原理.md","articles":[]},{"title":"优化","level":"1.10.11","depth":2,"path":"webpack/优化.md","ref":"webpack/优化.md","articles":[]},{"title":"博客 手把手教你从零认识Webpack","level":"1.10.12","depth":2,"path":"webpack/博客-手把手教你从零认识webpack.md","ref":"webpack/博客-手把手教你从零认识webpack.md","articles":[]},{"title":"博客 浅谈Webpack4性能优化","level":"1.10.13","depth":2,"path":"webpack/博客-浅谈webpack4性能优化.md","ref":"webpack/博客-浅谈webpack4性能优化.md","articles":[]},{"title":"模块热更新","level":"1.10.14","depth":2,"path":"webpack/模块热更新.md","ref":"webpack/模块热更新.md","articles":[]}]},"previous":{"title":"Vite","level":"1.9.2","depth":2,"path":"vue/vite.md","ref":"vue/vite.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vue/vue-router.md","mtime":"2021-03-09T06:37:23.725Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-15T10:08:28.737Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Vue-Router","level":"1.9.3","depth":2,"next":{"title":"Webpack","level":"1.10","depth":1,"path":"webpack/README.md","ref":"webpack/README.md","articles":[{"title":"CMD Vs AMD","level":"1.10.1","depth":2,"path":"webpack/CMD vs AMD.md","ref":"webpack/CMD vs AMD.md","articles":[]},{"title":"Ast","level":"1.10.2","depth":2,"path":"webpack/ast.md","ref":"webpack/ast.md","articles":[]},{"title":"Devtool","level":"1.10.3","depth":2,"path":"webpack/devtool.md","ref":"webpack/devtool.md","articles":[]},{"title":"External的理解","level":"1.10.4","depth":2,"path":"webpack/external的理解.md","ref":"webpack/external的理解.md","articles":[]},{"title":"Index","level":"1.10.5","depth":2,"path":"webpack/index.md","ref":"webpack/index.md","articles":[]},{"title":"Project","level":"1.10.6","depth":2,"path":"webpack/project.md","ref":"webpack/project.md","articles":[]},{"title":"Scope Hoisting","level":"1.10.7","depth":2,"path":"webpack/scope-hoisting.md","ref":"webpack/scope-hoisting.md","articles":[]},{"title":"Tapable","level":"1.10.8","depth":2,"path":"webpack/tapable.md","ref":"webpack/tapable.md","articles":[]},{"title":"TreeShaking","level":"1.10.9","depth":2,"path":"webpack/treeShaking.md","ref":"webpack/treeShaking.md","articles":[]},{"title":"Webpack底层原理","level":"1.10.10","depth":2,"path":"webpack/webpack底层原理.md","ref":"webpack/webpack底层原理.md","articles":[]},{"title":"优化","level":"1.10.11","depth":2,"path":"webpack/优化.md","ref":"webpack/优化.md","articles":[]},{"title":"博客 手把手教你从零认识Webpack","level":"1.10.12","depth":2,"path":"webpack/博客-手把手教你从零认识webpack.md","ref":"webpack/博客-手把手教你从零认识webpack.md","articles":[]},{"title":"博客 浅谈Webpack4性能优化","level":"1.10.13","depth":2,"path":"webpack/博客-浅谈webpack4性能优化.md","ref":"webpack/博客-浅谈webpack4性能优化.md","articles":[]},{"title":"模块热更新","level":"1.10.14","depth":2,"path":"webpack/模块热更新.md","ref":"webpack/模块热更新.md","articles":[]}]},"previous":{"title":"Vite","level":"1.9.2","depth":2,"path":"vue/vite.md","ref":"vue/vite.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","theme-comscore","book-summary-scroll-position-saver","prism","-highlight","copy-code-button","expandable-chapters-small"],"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-solarizedlight.css","prismjs/themes/prism-tomorrow.css"],"lang":{"js":"javascript"}},"book-summary-scroll-position-saver":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"expandable-chapters-small":{},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vue/vue-router.md","mtime":"2021-03-18T07:16:45.612Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-03-19T08:51:59.806Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

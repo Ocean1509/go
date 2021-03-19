@@ -31,6 +31,7 @@
   * [浏览器](js/浏览器.md)
   * [状态管理](js/状态管理.md)
   * [forEach](js/forEach.md)
+  * [domContentload和onload的区别](js/domContentload和onload的区别.md)
 
 * [Node](node/README.md)
   * [Buffer](node/Buffer.md)
