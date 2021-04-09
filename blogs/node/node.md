@@ -15,7 +15,7 @@ linux 查看文件权限 ls -al
 字符表示        r                  w                x
 数字            4                  2                1 
 
-![](../../imgs/node01.png)
+![](../imgs/node01.png)
 
 其他字符:
 d   目录文件
