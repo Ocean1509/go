@@ -210,3 +210,19 @@ netSocket.on('end', () => {
   console.log("客户段关闭")
 })
 ```
+
+
+### npm ls 命令
+npm ls 包 会列举哪些依赖引用了这个包
+
+
+
+### node异常捕获
+process
+  .on('unhandledRejection', (reason, p) => {
+    console.error(reason, 'Unhandled Rejection at Promise', p);
+  })
+  .on('uncaughtException', err => {
+    console.error(err, 'Uncaught Exception thrown');
+    process.exit(1);
+  });

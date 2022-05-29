@@ -9,6 +9,8 @@ webpack在打包所有模块之前，先是将模块根据配置交给不同的l
 
 我们所使用的preset-env插件集合，它里面就有这么一个插件，所以当preset-env这个插件集合开始工作的时候，我们代码中ESM的部分就应该会被转换成CommonJS的方式，webpack打包时拿到的代码就是以CommonJS组织的代码，所以Tree-shaking就不能生效。
 
+在babel7之前的babel-preset-env中，modules的默认选项时commonjs，babel7以后modules选项默认为 auto
+
 可以通过babelrc设置modules: false 让tree-shaking重新生效
 
 ```

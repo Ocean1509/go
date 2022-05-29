@@ -66,3 +66,7 @@ console.log(test) // function test() {}
 }
 console.log('外部test', test) // function test(){}
 ```
+
+
+### map和object的其中一个区别
+map是有序的，object是无序的
